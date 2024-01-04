@@ -1,10 +1,9 @@
-function PersonalInf() {
+function PersonalInfo() {
     const styles = {
         container: {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '70vh', // 100% de la hauteur de la vue
         },
         form: {
           border: '1px solid #ccc',
@@ -12,56 +11,94 @@ function PersonalInf() {
           borderRadius: '8px',
           width: '600px',
         },
+        label: { textAlign: 'left' , 
+        fontSize: '10px',
+        },
+        input: { width: '200px', 
+        padding: '15px', 
+        borderRadius: '4px', 
+        marginTop: '6px',
+        border: '1px solid #55718F', 
+       
+        },
+        textarea: {
+        borderRadius: '4px', 
+        marginTop: '6px',
+        border: '1px solid #55718F',
+        },
+        inputphoto:{
+        borderRadius: '4px',     
+        color: '#09295A',
+        backgroundcolor:'#09295A',
+        },
+    
+        submitButton: {
+          backgroundColor: '#cf3e3e', // Couleur par défaut
+          color: '#FFFFFF',
+          padding: '10px 15px',
+          borderRadius: '4px',
+          border: 'none',
+          cursor: 'pointer',
+        },
+        submitButtonHover: {
+          backgroundColor: '#cf1b1b', // Couleur lorsqu'on survole le bouton
+        },
       };
 
     return (
       <>
        <div style={styles.container}>
       <form style={styles.form}>
-        {/* Ajoutez ici les éléments de votre formulaire */}
-        <h5 style={{ color: '#09295A', textAlign: "center", margin: "0" }}>Information Personnel</h5>
+        
+        <h4 style={{ color: '#09295A', textAlign: "center", margin: "0" }}>Information Personnelle</h4>
         <br/>
-        <label>
-          Image :
-          <input type="file" name="image"  />
-        </label>
+        <label style={styles.label}>Photo</label>
+        <br/>
+        <input style={styles.inputphoto} type="file" name="image" accept=".png, .jpg, .jpeg" /><br />
+        
+        <label style={styles.label} >Nom</label>
         <br />
-        <label>
-          Nom :
-          <input type="text" name="nom" />
-        </label>
+        <input style={styles.input} type="text" name="nom" placeholder="Marc Legrand" /> <br />
+       
+        <label style={styles.label}>Titre</label> 
         <br />
-        <label>
-          Titre :
-          <input type="text" name="titre" />
-        </label>
+        <input style={styles.input} type="text" name="titre" placeholder="Commercial"/><br />
+       
+        <label style={styles.label}>Profil </label>
         <br />
-        <label>
-          Profil :
-          <textarea name="profile" rows="4" cols="50" />
-        </label>
+        <textarea style={styles.textarea} name="profile" rows="4" cols="50" placeholder="Description ..." /> 
         <br />
-        <label>
-          Email :
-          <input type="email" name="email" />
-        </label>
+        <label style={styles.label}>Email </label>
         <br />
-        <label>
-          Adresse :
-          <input type="text" name="adresse" />
-        </label>
+        <input style={styles.input} type="email" name="email" placeholder="Nom@gmail.com" />
+        <br /> 
+        <label style={styles.label}>Adresse </label>
         <br />
-        <label>
-          Numéro de téléphone :
-          <input type="tel" name="phone" />
-        </label>
+        <input style={styles.input} type="text" name="adresse" placeholder="washington"  />
+        <br /> 
+        <label style={styles.label}>Téléphone </label>
         <br />
-        <label>
-          Linkden :
-          <input type="text" name="linkden" />
-        </label>
+        <input style={styles.input} type="tel" name="phone" placeholder="+33612345678" />
+        <br /> 
+        <label style={styles.label}>Linkden </label>
         <br />
-        <button type="submit">Soumettre</button>
+        <input style={styles.input} type="text" name="linkden" placeholder="Marc Legrand"/>
+        <br /> <br />
+        <button
+            style={styles.submitButton}
+            type="submit"
+            onMouseEnter={() =>
+              (document.getElementById('submitButton').style.backgroundColor =
+                '#cf1b1b')
+            }
+            onMouseLeave={() =>
+              (document.getElementById('submitButton').style.backgroundColor =
+                '#cf3e3e')
+            }
+            id="submitButton"
+          >
+            Suivant
+          </button>
       </form>
     </div>
   
@@ -69,5 +106,4 @@ function PersonalInf() {
           )
   }
   
-  export default PersonalInf
-  
+  export default PersonalInfo
