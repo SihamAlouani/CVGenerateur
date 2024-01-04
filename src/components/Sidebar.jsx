@@ -1,7 +1,29 @@
-import { faSuitcase } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faBolt,
+  faLanguage,
+  faPerson,
+  faSuitcase,
+  faThumbsUp,
+  faUserGraduate,
+} from "@fortawesome/free-solid-svg-icons"
+
+import SideBarItem from "./SideBarItem"
 
 export default function Sidebar({ setPage }) {
+  const sidebarItems = [
+    {
+      title: "Information Personelle",
+      icon: faPerson,
+    },
+    {
+      title: "Education",
+      icon: faUserGraduate,
+    },
+    { title: "Experiences", icon: faSuitcase },
+    { title: "Compétances", icon: faBolt },
+    { title: "Langues", icon: faLanguage },
+    { title: "Références", icon: faThumbsUp },
+  ]
   return (
     <nav className="sidebar">
       <section className="logo">
@@ -9,60 +31,9 @@ export default function Sidebar({ setPage }) {
       </section>
 
       <section className="navigation-bar">
-        <div onClick={() => setPage("Experiences")} className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
-        <div onClick={() => setPage("Education")} className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
-        <div className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
-        <div className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
-        <div className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
-        <div className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
-        <div className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
-        <div className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
-        <div className="navigation-item">
-          <span className="navigation-item-icon">
-            <FontAwesomeIcon icon={faSuitcase}></FontAwesomeIcon>
-          </span>
-          <span className="nagivation-item-name">Experiences</span>
-        </div>
+        {sidebarItems.map(({ title, icon }) => {
+          return <SideBarItem title={title} icon={icon} setPage={setPage} />
+        })}
       </section>
     </nav>
   )
