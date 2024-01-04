@@ -74,3 +74,10 @@ a {
   justify-content: center;
   border-radius: 0.5rem;
 }
+
+.route {
+  display: none;
+}
+.route[data-visible="true"] {
+  display: unset;
+}
