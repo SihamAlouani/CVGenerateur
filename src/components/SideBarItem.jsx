@@ -1,7 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-export default function SideBarItem({ icon, title, setPage }) {
+export default function SideBarItem({ icon, title, setPage, page }) {
   return (
-    <div onClick={() => setPage(title)} className="navigation-item">
+    <div
+      onClick={() => setPage(title)}
+      className={`navigation-item ${page == title}`}
+    >
       <span className="navigation-item-icon">
         <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
       </span>

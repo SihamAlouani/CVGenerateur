@@ -9,7 +9,7 @@ import {
 
 import SideBarItem from "./SideBarItem"
 
-export default function Sidebar({ setPage }) {
+export default function Sidebar({ setPage, page }) {
   const sidebarItems = [
     {
       title: "Information Personelle",
@@ -32,7 +32,14 @@ export default function Sidebar({ setPage }) {
 
       <section className="navigation-bar">
         {sidebarItems.map(({ title, icon }) => {
-          return <SideBarItem title={title} icon={icon} setPage={setPage} />
+          return (
+            <SideBarItem
+              page={page}
+              title={title}
+              icon={icon}
+              setPage={setPage}
+            />
+          )
         })}
       </section>
     </nav>

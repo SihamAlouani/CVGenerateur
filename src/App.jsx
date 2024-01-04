@@ -7,13 +7,11 @@ import CustomRoute from "./components/CustomRoute"
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("")
-  useEffect(() => {
-    console.log(page)
-  })
+
   return (
     <div className="app">
       {/* routes */}
-      <Sidebar setPage={setPage} />
+      <Sidebar setPage={setPage} page={page} />
       <div className="content">
         <CustomRoute path="Information Personelle" page={page}>
           <h1>this is Info Personelle</h1>

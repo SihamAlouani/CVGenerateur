@@ -47,7 +47,7 @@ a {
 }
 .sidebar .navigation-bar {
   display: grid;
-  gap: 1rem;
+
   width: 100%;
   overflow-y: scroll;
 }
@@ -68,7 +68,8 @@ a {
   gap: 1.5rem;
   padding: 1rem 1.5rem;
 }
-.sidebar .navigation-bar .navigation-item:hover {
+.sidebar .navigation-bar .navigation-item:hover,
+.sidebar .navigation-bar .navigation-item.true {
   background: var(--secondary);
 }
 
