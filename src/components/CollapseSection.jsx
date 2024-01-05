@@ -19,7 +19,7 @@ export default function CollapseSection({ title, children }) {
           )}
         </button>
       </div>
-      {isVisible && <div className="content">{children}</div>}
+      {isVisible && <div className="collapse-content">{children}</div>}
     </div>
   )
 }

@@ -2,11 +2,16 @@ import { useEffect, useState } from "react"
 
 import Sidebar from "./components/Sidebar"
 import "./assets/style/sidebar.css"
+
+
+import Footer from "./components/Footer"
+import LanguageSection from "./features/LanguageSection"
 import "./assets/style/app.css"
 
 import CustomRoute from "./components/CustomRoute"
 import References from "./features/References"
 import CollapseSection from "./components/CollapseSection"
+import WorkExperience from "./features/WorkExperience"
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("Information Personelle")
@@ -43,13 +48,11 @@ function App() {
           <h1>this is Langues </h1>
         </CustomRoute>
         <CustomRoute path="Références" page={page}>
-        <CollapseSection title="hello from something">
-            <References/>
-        </CollapseSection>
-          
+          <h1>this is Références </h1>
         </CustomRoute>
         <div className="prev">Preview</div>
       </div>
+      <Footer />
     </div>
   )
 }
