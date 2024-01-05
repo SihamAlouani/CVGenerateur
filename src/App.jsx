@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar"
 import "./assets/style/sidebar.css"
 import { Route, Routes } from "react-router-dom"
 import CustomRoute from "./components/CustomRoute"
+import References from "./features/References"
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("")
@@ -29,7 +30,7 @@ function App() {
           <h1>this is Langues </h1>
         </CustomRoute>
         <CustomRoute path="Références" page={page}>
-          <h1>this is Références </h1>
+          <References/>
         </CustomRoute>
       </div>
     </div>
