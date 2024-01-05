@@ -2,13 +2,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook,faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import image from "./CVlogo.jpg"
+import image from "./CVLogo.jpeg"
 
 const Footer = () => {
   return (
     <footer>
       <div className='logodv'>
-        <img src={image} alt=""  style={{width:'50px',height:'50px',borderRadius:'10px'}}/>
+        <img src={image} alt=""  style={{width:'40px',height:'40px',borderRadius:'10px'}}/>
         </div>
         <div className='Linkdv'>
         <a href="https://twitter.com">

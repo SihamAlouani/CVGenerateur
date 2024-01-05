@@ -6,6 +6,7 @@ import"./assets/style/Footer.css"
 import { Route, Routes } from "react-router-dom"
 import CustomRoute from "./components/CustomRoute"
 import Footer from "./components/Footer"
+import LanguageSection from "./features/LanguageSection"
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("")
@@ -28,12 +29,14 @@ function App() {
           <h1>this is Compétances </h1>
         </CustomRoute>
         <CustomRoute path="Langues" page={page}>
-          <h1>this is Langues </h1>
+            <LanguageSection/>
         </CustomRoute>
         <CustomRoute path="Références" page={page}>
           <h1>this is Références </h1>
         </CustomRoute>
+        
         <Footer/>
+
       </div>
     </div>
   )
