@@ -8,7 +8,7 @@ export default function CollapseSection({ title, children ,index}) {
     setIsVisible(!isVisible)
   }
   return (
-    <div className="collapse-section">
+    <div className="collapse-section" id={index}>
       <div className="preview">
         <span className="preview-title">{title}</span>
         <button onClick={toggleVisibility} className="toggle-visibility">
