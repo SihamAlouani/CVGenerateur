@@ -3,7 +3,7 @@ import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 import "../assets/style/collapsesection.css"
 export default function CollapseSection({ title, children }) {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(false)
   function toggleVisibility() {
     setIsVisible(!isVisible)
   }
@@ -11,7 +11,7 @@ export default function CollapseSection({ title, children }) {
     <div className="collapse-section">
       <div className="preview">
         <span className="preview-title">{title}</span>
-        <button onClick={toggleVisibility}>
+        <button onClick={toggleVisibility} className="toggle-visibility">
           {isVisible ? (
             <FontAwesomeIcon icon={faChevronUp} />
           ) : (
