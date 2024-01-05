@@ -2,8 +2,10 @@ import { useEffect, useState } from "react"
 
 import Sidebar from "./components/Sidebar"
 import "./assets/style/sidebar.css"
+import"./assets/style/Footer.css"
 import { Route, Routes } from "react-router-dom"
 import CustomRoute from "./components/CustomRoute"
+import Footer from "./components/Footer"
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("")
@@ -31,6 +33,7 @@ function App() {
         <CustomRoute path="Références" page={page}>
           <h1>this is Références </h1>
         </CustomRoute>
+        <Footer/>
       </div>
     </div>
   )
