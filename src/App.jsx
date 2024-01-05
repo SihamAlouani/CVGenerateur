@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import React from 'react'
+import WorkExperience from './features/WorkExperience'
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-
+      <WorkExperience/>
     </>
   )
 }
