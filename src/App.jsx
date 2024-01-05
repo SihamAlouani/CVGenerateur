@@ -10,6 +10,7 @@ import "./assets/style/form.css"
 import CustomRoute from "./components/CustomRoute"
 import CollapseSection from "./components/CollapseSection"
 import WorkExperience from "./features/WorkExperience"
+import References from "./features/References"
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("Information Personelle")
@@ -54,6 +55,7 @@ function App() {
           </CustomRoute>
           <CustomRoute path="Références" page={page}>
             <h1>this is Références </h1>
+            <References/>
           </CustomRoute>
 
           <div className="prev" id="test">
