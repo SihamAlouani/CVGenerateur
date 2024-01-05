@@ -2,18 +2,14 @@ import { useEffect, useState } from "react"
 
 import Sidebar from "./components/Sidebar"
 import "./assets/style/sidebar.css"
-<<<<<<< HEAD
 import"./assets/style/Footer.css"
 import { Route, Routes } from "react-router-dom"
-import CustomRoute from "./components/CustomRoute"
 import Footer from "./components/Footer"
 import LanguageSection from "./features/LanguageSection"
-=======
 import "./assets/style/app.css"
 
 import CustomRoute from "./components/CustomRoute"
 import CollapseSection from "./components/CollapseSection"
->>>>>>> d8a3f8a7cd558d371be0c6b084420ff8dde68c04
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("Information Personelle")
@@ -52,13 +48,10 @@ function App() {
         <CustomRoute path="Références" page={page}>
           <h1>this is Références </h1>
         </CustomRoute>
-<<<<<<< HEAD
         
         <Footer/>
 
-=======
         <div className="prev">Preview</div>
->>>>>>> d8a3f8a7cd558d371be0c6b084420ff8dde68c04
       </div>
     </div>
   )
