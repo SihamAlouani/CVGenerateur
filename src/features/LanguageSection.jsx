@@ -67,12 +67,12 @@ const LanguageSection = () => {
         
     </select>
       
-        <button type="submit">{editingIndex !== null ? 'modifier la langue':'Ajouter une lague'}</button>
+        <button type="submit">{editingIndex !== null ? 'Modifier la langue':'Ajouter une langue'}</button>
       </form>
       <div>
         {languages.map((lang, index) => (
           <div key={index}>
-            {lang.language} - {lang.level}
+            {lang.langue} - {lang.level}
             <button onClick={() => handleDelete(index)}>Delete</button>
             <button onClick={() => handleEdite(index)}>Modifier</button>
           </div>
