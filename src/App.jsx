@@ -43,7 +43,10 @@ function App() {
           <h1>this is Langues </h1>
         </CustomRoute>
         <CustomRoute path="Références" page={page}>
-          <References/>
+        <CollapseSection title="hello from something">
+            <References/>
+        </CollapseSection>
+          
         </CustomRoute>
         <div className="prev">Preview</div>
       </div>
