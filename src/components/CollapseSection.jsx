@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 import "../assets/style/collapsesection.css"
-export default function CollapseSection({ title, children }) {
+export default function CollapseSection({ title, children ,index}) {
   const [isVisible, setIsVisible] = useState(false)
   function toggleVisibility() {
     setIsVisible(!isVisible)
