@@ -1,0 +1,18 @@
+.collapse-section {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: max-content;
+  padding: 0.75rem 0.5rem;
+  /* background-color: red; */
+  width: 100%;
+
+  box-shadow: 1px 1px 3px gray;
+}
+
+.collapse-section .preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background: red; */
+  padding: 0.5rem;
+}
