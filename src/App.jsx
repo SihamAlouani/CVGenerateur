@@ -4,6 +4,8 @@ import Sidebar from "./components/Sidebar"
 import "./assets/style/sidebar.css"
 import { Route, Routes } from "react-router-dom"
 import CustomRoute from "./components/CustomRoute"
+import PersonalInfo from "./features/PersonalInfo"
+import Education from "./features/Education"
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("")
@@ -14,10 +16,10 @@ function App() {
       <Sidebar setPage={setPage} page={page} />
       <div className="content">
         <CustomRoute path="Information Personelle" page={page}>
-          <h1>this is Info Personelle</h1>
+        <PersonalInfo setPage={setPage} page={page} />
         </CustomRoute>
         <CustomRoute path="Education" page={page}>
-          <h1>this is Education </h1>
+        <Education setPage={setPage} page={page} />
         </CustomRoute>
         <CustomRoute path="Experiences" page={page}>
           <h1>this is Experiences </h1>

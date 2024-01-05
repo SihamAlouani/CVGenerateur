@@ -92,7 +92,7 @@ function Education() {
                 name="diplome"
                 value={education.diplome}
                 placeholder="Licence en Ingénierie"
-                onChange={(e) => handleChange(index, e)}
+                onChange={(e) => handleChange(index, e)} required
               />
               <br />
               <div style={styles.dateContainer}>
@@ -104,7 +104,7 @@ function Education() {
                     type="date"
                     name="date_de_commencement"
                     value={education.date_de_commencement}
-                    onChange={(e) => handleChange(index, e)}
+                    onChange={(e) => handleChange(index, e)} required
                   />
                 </div>
                 <div>
@@ -115,7 +115,7 @@ function Education() {
                     type="date"
                     name="date_de_fin"
                     value={education.date_de_fin}
-                    onChange={(e) => handleChange(index, e)}
+                    onChange={(e) => handleChange(index, e)} required
                   />
                 </div>
               </div>
@@ -130,7 +130,7 @@ function Education() {
                     name="ecole"
                     value={education.ecole}
                     placeholder="Université de ..."
-                    onChange={(e) => handleChange(index, e)}
+                    onChange={(e) => handleChange(index, e)} required
                   />
                 </div>
                 <div>
@@ -142,7 +142,7 @@ function Education() {
                     name="location"
                     value={education.location}
                     placeholder="Paris"
-                    onChange={(e) => handleChange(index, e)}
+                    onChange={(e) => handleChange(index, e)} required
                   />
                 </div>
               </div>
