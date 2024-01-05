@@ -3,18 +3,23 @@ import { useEffect, useState } from "react"
 import Sidebar from "./components/Sidebar"
 import "./assets/style/sidebar.css"
 
-
 import Footer from "./components/Footer"
 import LanguageSection from "./features/LanguageSection"
 import "./assets/style/app.css"
-
+import "./assets/style/form.css"
 import CustomRoute from "./components/CustomRoute"
 import CollapseSection from "./components/CollapseSection"
 import WorkExperience from "./features/WorkExperience"
 function App() {
   const [count, setCount] = useState(0)
   const [page, setPage] = useState("Information Personelle")
-
+  function test() {
+    let original = document.body.innerHTML
+    let content = document.querySelector("#test").innerHTML
+    document.body.innerHTML = content
+    window.print()
+    document.body.innerHTML = original
+  }
   return (
     <div className="app">
       {/* routes */}
@@ -50,7 +55,10 @@ function App() {
           <CustomRoute path="Références" page={page}>
             <h1>this is Références </h1>
           </CustomRoute>
-        
+
+          <div className="prev" id="test">
+            <button onClick={() => test()}>click</button>
+          </div>
         </div>
       </div>
       <Footer />
