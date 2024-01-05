@@ -65,32 +65,40 @@ const LanguageSection = () => {
           />
         </label>
 
-        <label>Level:</label>
-        <select
-          name="level"
-          onChange={handleLanguageChange}
-          id=""
-          value={formData.level}
-          required
-        >
-          <option></option>
-          <option>Langue maternnelle</option>
-          <option>Basic</option>
-          <option>Intermidiaire</option>
-          <option>Avancé </option>
-        </select>
+        <label>
+          Level:
+          <select
+            name="level"
+            onChange={handleLanguageChange}
+            id=""
+            value={formData.level}
+            required
+          >
+            <option></option>
+            {levels.map((level, index) => {
+              return (
+                <option key={index}>
+                  {level == levels[0] ? "Langue maternnelle" : level}
+                </option>
+              )
+            })}
+          </select>
+        </label>
 
         <button type="submit">
-          {editingIndex !== null ? "modifier la langue" : "Ajouter une lague"}
+          {editingIndex !== null ? "modifier la langue" : "Ajouter une langue"}
         </button>
       </form>
       <div className="display">
         {languages.map((lang, index) => (
-          <div key={index}>
-            {lang.language} - {lang.level}
-            <button onClick={() => handleDelete(index)}>Delete</button>
-            <button onClick={() => handleEdite(index)}>Modifier</button>
-          </div>
+          <CollapseSection title={lang.langue}>
+            <div key={index}>
+              {lang.langue} -{" "}
+              <span className={`type-label ${lang.level}`}>{lang.level}</span>
+              <button onClick={() => handleDelete(index)}>Delete</button>
+              <button onClick={() => handleEdite(index)}>Modifier</button>
+            </div>
+          </CollapseSection>
         ))}
       </div>
     </div>
