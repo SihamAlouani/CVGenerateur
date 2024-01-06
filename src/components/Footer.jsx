@@ -6,7 +6,7 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
-import image from "../assets/Images/CVLogo.jpeg"
+
 import '../assets/style/Footer.css'
 const Footer = () => {
   return (
