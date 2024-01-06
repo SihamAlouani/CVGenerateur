@@ -1,0 +1,42 @@
+.preview-container {
+  display: grid;
+  grid-template-columns: 1.25fr 2fr;
+
+  font-size: 0.8rem;
+  overflow: hidden;
+  box-shadow: 1px 1px 3px gray;
+}
+
+.preview-container .right-side {
+}
+.preview-container .left-side {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 2em;
+}
+
+.preview-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.preview-container .left-side .image {
+  background-color: purple;
+  width: 50%;
+  margin-inline: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-container .left-side .image img {
+  width: 100%;
+  aspect-ratio: 1;
+}
