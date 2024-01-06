@@ -6,8 +6,10 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
+
 import image from "../assets/Images/cv-removebg-preview.png"
-import "../assets/style/Footer.css"
+
+
 const Footer = () => {
   return (
     <footer>
@@ -31,7 +33,7 @@ const Footer = () => {
         <a href="https://LinkedIn.com">
           <FontAwesomeIcon className="icon" icon={faLinkedin} />
         </a>
-      </div>
+      </div> 
     </footer>
   )
 }
