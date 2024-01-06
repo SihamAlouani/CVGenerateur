@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 
-const LanguageSection = () => {
-  const [languages, setLanguages] = useState([])
+const LanguageSection = ({ languages, setLanguages }) => {
   const [formData, setFormData] = useState({
     langue: "",
     level: "",
@@ -52,7 +51,6 @@ const LanguageSection = () => {
 
   return (
     <div>
-      <h2>Languages</h2>
       <form onSubmit={handleSubmit} className="form">
         <label>
           Language:
@@ -92,11 +90,26 @@ const LanguageSection = () => {
       <div className="display">
         {languages.map((lang, index) => (
           <CollapseSection title={lang.langue}>
-            <div key={index}>
-              {lang.langue} -{" "}
-              <span className={`type-label ${lang.level}`}>{lang.level}</span>
-              <button onClick={() => handleDelete(index)}>Delete</button>
-              <button onClick={() => handleEdite(index)}>Modifier</button>
+            <div key={index} className="content">
+              <div>
+                {" "}
+                {lang.langue}{" "}
+                <span className={`type-label ${lang.level}`}>{lang.level}</span>
+              </div>
+              <div className="actions">
+                <button
+                  className="action delete "
+                  onClick={() => handleDelete(index)}
+                >
+                  Delete
+                </button>
+                <button
+                  className="action update "
+                  onClick={() => handleEdite(index)}
+                >
+                  Modifier
+                </button>
+              </div>
             </div>
           </CollapseSection>
         ))}

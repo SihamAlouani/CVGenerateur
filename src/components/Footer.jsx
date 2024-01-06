@@ -7,7 +7,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
 import image from "../assets/Images/cv-removebg-preview.png"
-
+import "../assets/style/Footer.css"
 const Footer = () => {
   return (
     <footer>

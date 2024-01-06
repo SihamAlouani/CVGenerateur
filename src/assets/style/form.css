@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  padding-top: 3rem;
 }
 
 .form * {
@@ -27,6 +28,7 @@
   padding: 0;
 }
 .form label input,
+.form label textarea,
 .form button,
 .form select {
   width: 100%;
@@ -63,4 +65,27 @@
 .Avancé {
   background-color: var(--base-purple);
   color: var(--font-purple);
+}
+
+input[type="file"] {
+  display: none !important;
+}
+
+.image-label {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center;
+
+  padding: 0 !important;
+}
+.image-label span {
+  font-size: 0.9rem;
+}
+.svg {
+  width: max-content;
+  color: var(--primary);
+
+  /* border: 1px solid var(--primary); */
+  font-size: 1.2rem;
 }

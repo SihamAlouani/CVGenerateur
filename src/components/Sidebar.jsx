@@ -6,6 +6,7 @@ import {
   faThumbsUp,
   faUserGraduate,
 } from "@fortawesome/free-solid-svg-icons"
+import image from "../assets/Images/cv-removebg-preview.png"
 
 import SideBarItem from "./SideBarItem"
 
@@ -27,7 +28,7 @@ export default function Sidebar({ setPage, page }) {
   return (
     <nav className="sidebar">
       <section className="logo">
-        <div>Logo Here</div>
+        <img src={image} alt="" className="logo-image" />
       </section>
 
       <section className="navigation-bar">
