@@ -154,21 +154,6 @@ function PersonalInfo({
               required
             />
           </label>
-          <button
-            type="button"
-            // onMouseEnter={() =>
-            //   (document.getElementById("submitButton").style.backgroundColor =
-            //     "#cf1b1b")
-            // }
-            // onMouseLeave={() =>
-            //   (document.getElementById("submitButton").style.backgroundColor =
-            //     "#cf3e3e")
-            // }
-            onClick={handleSubmit}
-            className=""
-          >
-            Enregister
-          </button>
         </form>
       </div>
     </>

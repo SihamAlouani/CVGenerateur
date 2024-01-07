@@ -64,7 +64,9 @@ export default function Preview({
 
             {languages.length > 0 && (
               <div>
-                <h4 className="p-4">Langues</h4>
+                <h4 className="p-4 ">
+                  Langues <hr />
+                </h4>
                 <ul className="langues">
                   {languages.map((lang) => {
                     return (
@@ -85,14 +87,18 @@ export default function Preview({
           )}
           {"" != informations.profile && (
             <div className="profile">
-              <h4 className="section-name">Profile</h4>
+              <h4 className="">
+                Profile <hr />
+              </h4>
               <p>{informations.profile}</p>
             </div>
           )}
 
           {experiences.length > 0 && (
             <div className="experiences">
-              <h4 className="section-name">experiences</h4>
+              <h4 className="">
+                experiences <hr />
+              </h4>
               <div className="experiences-container">
                 {experiences.map((WE) => {
                   return (
@@ -114,7 +120,9 @@ export default function Preview({
 
           {educations.length > 0 && (
             <div className="education">
-              <h4 className="section-name">Educations</h4>
+              <h4 className="">
+                Educations <hr />
+              </h4>
               <div className="educations-container">
                 {educations.map((education) => {
                   return (
@@ -136,7 +144,9 @@ export default function Preview({
 
           {skills.length > 0 && (
             <div className="skills">
-              <h4 className="section-name">Compétances</h4>
+              <h4 className="">
+                Compétances <hr />
+              </h4>
               <div className="skills-container">
                 {skills.map((skill) => {
                   return <div>{skill} |</div>
@@ -147,7 +157,9 @@ export default function Preview({
 
           {references.length > 0 && (
             <div className="education">
-              <h4 className="section-name">Réferences</h4>
+              <h4 className="">
+                Réferences <hr />
+              </h4>
               <div className="ref-container">
                 {references.map((reference) => {
                   return (
@@ -158,7 +170,7 @@ export default function Preview({
                         <span>{reference.entreprise}</span>
                       </div>
                       <div className="details">
-                        {reference.email},{reference.tel}
+                        {reference.email},{reference.tele}
                       </div>
                     </div>
                   )

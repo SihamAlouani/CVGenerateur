@@ -19,6 +19,7 @@ const Footer = () => {
           style={{ width: "50px", height: "50px", borderRadius: "10px" }}
         />
       </div>
+      <div>© 2023 - CvGenerator</div>
       <div className="Linkdv">
         <a href="https://twitter.com">
           <FontAwesomeIcon className="icon" icon={faTwitter} />

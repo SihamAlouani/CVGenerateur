@@ -123,19 +123,25 @@ function Education({ educations, setEducations }) {
             return (
               <CollapseSection title={perI.diplome}>
                 <div className="content">
-                  <div className="actions">
-                    <button
-                      className="action update"
-                      onClick={() => handleEdit(index)}
-                    >
-                      Modifier
-                    </button>
-                    <button
-                      className="action delete"
-                      onClick={() => handleDelete(index)}
-                    >
-                      Supprimer
-                    </button>
+                  <div className="d-grid">
+                    <span>Diplome:{perI.diplome}</span>
+                    <span>date: de Fin{perI.date_de_fin}</span>
+                    <span>Ecole:{perI.ecole}</span>
+                    <span>Location:{perI.location}</span>
+                    <div className="actions">
+                      <button
+                        className="action update"
+                        onClick={() => handleEdit(index)}
+                      >
+                        Modifier
+                      </button>
+                      <button
+                        className="action delete"
+                        onClick={() => handleDelete(index)}
+                      >
+                        Supprimer
+                      </button>
+                    </div>
                   </div>
                 </div>
               </CollapseSection>

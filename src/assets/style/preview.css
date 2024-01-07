@@ -160,3 +160,8 @@
 .preview-container .education-element .details {
   margin-left: auto;
 }
+
+.educations-container {
+  display: grid;
+  gap: 0.95rem;
+}
