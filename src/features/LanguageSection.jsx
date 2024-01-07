@@ -15,9 +15,6 @@ const LanguageSection = ({ languages, setLanguages }) => {
     setFormData({ ...formData, [name]: value })
   }
 
-  useEffect(() => {
-    console.log(formData)
-  })
   const handleSubmit = (e) => {
     e.preventDefault()
     if (editingIndex !== null) {

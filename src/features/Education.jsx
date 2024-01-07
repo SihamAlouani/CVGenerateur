@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 
 function Education() {
-  const [personalInf, setPersonalInf] = useState([])
+  const [educations, setEducations] = useState([])
   const [formData, setFormData] = useState({
     diplome: "",
     date_de_commencement: "",
@@ -23,12 +23,12 @@ function Education() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (editingIndex !== null) {
-      const newPersonalInf = [...personalInf]
+      const newPersonalInf = [...educations]
       newPersonalInf[editingIndex] = formData
-      setPersonalInf(newPersonalInf)
+      setEducations(newPersonalInf)
       setEditingIndex(null)
     } else {
-      setPersonalInf([...personalInf, formData])
+      setEducations([...educations, formData])
     }
 
     setFormData({
@@ -41,14 +41,14 @@ function Education() {
   }
 
   const handleEdit = (index) => {
-    setFormData(personalInf[index])
+    setFormData(educations[index])
     setEditingIndex(index)
   }
 
   const handleDelete = (index) => {
-    const newPersonalInf = [...personalInf]
+    const newPersonalInf = [...educations]
     newPersonalInf.splice(index, 1)
-    setPersonalInf(newPersonalInf)
+    setEducations(newPersonalInf)
     setEditingIndex(null)
   }
 
@@ -120,19 +120,19 @@ function Education() {
         </form>
 
         <div className="display">
-          {personalInf.map((perI) => {
+          {educations.map((perI, index) => {
             return (
               <CollapseSection title={perI.diplome}>
                 <div className="content">
                   <div className="actions">
                     <button
-                      className="action delete"
+                      className="action update"
                       onClick={() => handleEdit(index)}
                     >
                       Modifier
                     </button>
                     <button
-                      className="action update"
+                      className="action delete"
                       onClick={() => handleDelete(index)}
                     >
                       Supprimer
