@@ -17,7 +17,9 @@
   gap: 1rem;
   padding: 2em;
 }
-
+.preview-container .preview-name {
+  text-align: center;
+}
 .preview-left-side {
   display: flex;
   flex-direction: column;
@@ -35,8 +37,29 @@
   overflow: hidden;
   border: 2px solid white;
 }
-
+.profile p {
+  word-wrap: break-word;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
 .preview-container .left-side .image img {
   width: 100%;
   aspect-ratio: 1;
+}
+
+.preview-container .titre {
+  padding: 1rem;
+  padding-top: 0;
+  font-size: 2em;
+}
+.personal-info-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+.personal-info-wrapper svg {
+  padding: 0 !important;
+  margin: 0 !important;
 }

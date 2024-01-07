@@ -8,6 +8,7 @@ function PersonalInfo({
   setFormData,
   image,
   setImage,
+  setInformations,
 }) {
   const [editingIndex, setEditingIndex] = useState(null)
   const handleChange = (e) => {
@@ -39,22 +40,22 @@ function PersonalInfo({
       setInformations(newInformations)
       setEditingIndex(null)
     } else {
-      setInformations([...informations, formData])
+      setInformations(formData)
     }
-    setFormData({
-      image: "",
-      nom: "",
-      titre: "",
-      profile: "",
-      email: "",
-      adresse: "",
-      phone: "",
-      linkden: "",
-    })
+    // setFormData({
+    //   image: "",
+    //   nom: "",
+    //   titre: "",
+    //   profile: "",
+    //   email: "",
+    //   adresse: "",
+    //   phone: "",
+    //   linkden: "",
+    // })
   }
 
   useEffect(() => {
-    console.log(formData)
+    console.log("azzaeaz", informations)
   })
 
   return (
@@ -163,6 +164,7 @@ function PersonalInfo({
             //   (document.getElementById("submitButton").style.backgroundColor =
             //     "#cf3e3e")
             // }
+            onClick={handleSubmit}
             className=""
           >
             Enregister

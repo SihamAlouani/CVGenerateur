@@ -87,7 +87,7 @@ function App() {
           </div>
 
           <Preview
-            informations={informations}
+            informations={formData}
             references={references}
             languages={languages}
             image={image}
