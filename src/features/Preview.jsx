@@ -1,5 +1,8 @@
+import React, { useRef } from "react";
+import ReactToPrint from "react-to-print";
 import "../assets/style/preview.css"
 import image from "../assets/Images/cv-removebg-preview.png"
+import { PDFDownloadLink,Page,View,Document } from '@react-pdf/renderer';
 import { useEffect, useState } from "react"
 import ColorPallet from "../components/ColorPallet"
 export default function Preview({
@@ -12,10 +15,27 @@ export default function Preview({
   useEffect(() => {
     console.log(informations)
   })
+
+  //this for Pdf 
+  const Doc = () => {
+    return (
+      <PDFDownloadLink document={
+        <Document>
+          <Page size="A4">
+            <View>{print.current}</View>
+          </Page>
+        </Document>
+      } fileName="cv.pdf">
+        {({ loading }) => (loading ? 'Loading document...' : 'Download PDF')}
+      </PDFDownloadLink>
+    );
+  };
+  
+  const print = useRef();
   return (
     <div className={`preview-left-side `}>
-      <div className="preview-container">
-        <section className={`left-side ${color}`}>
+      <div ref={print} className="preview-container">
+        <section  className={`left-side ${color}`}>
           <div className="image">
             <img src={image.previewUrl} alt="" />
           </div>
@@ -46,10 +66,23 @@ export default function Preview({
               </ul>
             </div>
           )}
+
         </section>
         <section className="right-side"></section>
       </div>
       <ColorPallet setColor={setColor} />
+      <div>
+        {print.current && (
+          <>
+            <ReactToPrint
+              trigger={() => <button className=""> Imprimer Le Cv</button>}
+              content={() => print.current}
+            />
+            <button onClick={()=>Doc()}>View PDF</button>
+          </>
+        )}
+      </div>
     </div>
+
   )
 }
