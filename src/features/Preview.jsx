@@ -1,10 +1,12 @@
 import "../assets/style/preview.css"
 import image from "../assets/Images/cv-removebg-preview.png"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import ColorPallet from "../components/ColorPallet"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faHome, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import ReactToPrint from "react-to-print"
+import { PDFDownloadLink, Page, View, Document } from "@react-pdf/renderer"
 export default function Preview({
   references,
   languages,
@@ -16,9 +18,28 @@ export default function Preview({
 }) {
   const [color, setColor] = useState("dark")
 
+  const Doc = () => {
+    return (
+      <PDFDownloadLink
+        document={
+          <Document>
+            <Page size="A4">
+              <View>{print.current}</View>
+            </Page>
+          </Document>
+        }
+        fileName="cv.pdf"
+      >
+        {({ loading }) => (loading ? "Loading document..." : "Download PDF")}
+      </PDFDownloadLink>
+    )
+  }
+
+  const print = useRef()
+
   return (
     <div className={`preview-left-side `}>
-      <div className="preview-container">
+      <div ref={print} className="preview-container">
         <section className={`left-side ${color}`}>
           <div className="image-name">
             <div className="image">
@@ -181,6 +202,14 @@ export default function Preview({
         </section>
       </div>
       <ColorPallet setColor={setColor} />
+      {print.current && (
+        <>
+          <ReactToPrint
+            trigger={() => <button className=""> Imprimer Le Cv</button>}
+            content={() => print.current}
+          />
+        </>
+      )}
     </div>
   )
 }

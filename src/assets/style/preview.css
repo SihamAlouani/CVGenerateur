@@ -1,3 +1,20 @@
+@page {
+  size: "a4";
+}
+@media print {
+  .preview-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+input {
+  border: 1px solid gray;
+  outline: none;
+}
+
 .preview-container {
   display: grid;
   grid-template-columns: 1.25fr 2fr;

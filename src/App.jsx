@@ -34,13 +34,7 @@ function App() {
   })
   const [image, setImage] = useState({ file: "", previewUrl: "" })
   const [page, setPage] = useState("Information Personelle")
-  function test() {
-    let original = document.body.innerHTML
-    let content = document.querySelector("#test").innerHTML
-    document.body.innerHTML = content
-    window.print()
-    document.body.innerHTML = original
-  }
+
   return (
     <div className="app">
       {/* routes */}
