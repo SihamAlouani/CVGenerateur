@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 
-function Education() {
-  const [educations, setEducations] = useState([])
+function Education({ educations, setEducations }) {
   const [formData, setFormData] = useState({
     diplome: "",
     date_de_commencement: "",
@@ -68,7 +67,7 @@ function Education() {
               required
             />
           </label>
-          <label htmlFor="date_de_commencement">
+          {/* <label htmlFor="date_de_commencement">
             Date de commencement
             <input
               type="date"
@@ -77,7 +76,7 @@ function Education() {
               onChange={handleChange}
               required
             />
-          </label>
+          </label> */}
           <label htmlFor="date_de_fin">
             Date de fin{" "}
             <input

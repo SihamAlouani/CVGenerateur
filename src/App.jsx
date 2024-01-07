@@ -21,6 +21,8 @@ function App() {
   const [languages, setLanguages] = useState([])
   const [informations, setInformations] = useState([])
   const [skills, setSkills] = useState([])
+  const [educations, setEducations] = useState([])
+  const [experiences, setExperiences] = useState([])
   const [formData, setFormData] = useState({
     nom: "",
     titre: "",
@@ -60,11 +62,17 @@ function App() {
             </CustomRoute>
             <CustomRoute path="Education" page={page}>
               <h1>this is Education </h1>
-              <Education />
+              <Education
+                educations={educations}
+                setEducations={setEducations}
+              />
             </CustomRoute>
             <CustomRoute path="Experiences" page={page}>
               <h1>Expérience Professionnelle</h1>
-              <WorkExperience></WorkExperience>
+              <WorkExperience
+                experiences={experiences}
+                setExperiences={setExperiences}
+              ></WorkExperience>
             </CustomRoute>
             <CustomRoute path="Compétances" page={page}>
               <h1>this is Compétances </h1>
@@ -90,7 +98,10 @@ function App() {
             informations={formData}
             references={references}
             languages={languages}
+            educations={educations}
             image={image}
+            skills={skills}
+            experiences={experiences}
           />
         </div>
       </div>
