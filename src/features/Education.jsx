@@ -49,9 +49,9 @@ function Education({ educations, setEducations }) {
     let dateDeCommencement = dateDeCommencementValidation ? new Date(formData.date_de_commencement) : null;
     let dateDeFin = dateDeFintValidation ? new Date(formData.date_de_fin) : null;
   
-    let ComparisondateValidation =
-    dateDeCommencement === null || (dateDeFin === null || dateDeCommencement < dateDeFin);
-  
+   let ComparisondateValidation =
+  dateDeCommencement === null || (dateDeFin === null || dateDeCommencement < dateDeFin);
+
   
     if (!ComparisondateValidation) {
       setDateComparisonError("La date de fin doit être après la date de commencement");
