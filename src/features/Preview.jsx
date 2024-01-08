@@ -30,6 +30,7 @@ export default function Preview({
           <div className="image">
             <img src={image.previewUrl} alt="" />
           </div>
+          <h3 className="preview-name">{informations?.nom}</h3>
           <div className="sections">
             <div className="info">
               {informations.email != "" && (

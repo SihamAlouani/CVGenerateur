@@ -42,16 +42,7 @@ function PersonalInfo({
   // useEffect(() => {
   //   Validation()
   // })
-  function Validation() {
-    const nameValidation = informations.nom.length == 0
-    if (nameValidation) {
-      setNameValidationError("ce champ est obligatoire")
-    } else {
-      setNameValidationError("")
-    }
 
-    return nameValidation
-  }
   const handleSubmit = (e) => {}
 
   useEffect(() => {
