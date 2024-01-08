@@ -17,6 +17,7 @@
 
 .yellow {
   background: var(--cv-yellow);
+  color: white !important;
 }
 .light-orange {
   background: var(--cv-light-orange);
@@ -35,6 +36,7 @@
 }
 .dark-purple {
   background: var(--cv-dark-pink);
+  color: black !important;
 }
 .purple {
   background: var(--cv-purple);

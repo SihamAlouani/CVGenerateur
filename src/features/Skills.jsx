@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import "../assets/style/skills.css"
 import CollapseSection from "../components/CollapseSection"
 
@@ -134,3 +134,5 @@ function Skills({ skills, setSkills }) {
 }
 
 export default Skills
+
+

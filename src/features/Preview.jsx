@@ -1,6 +1,8 @@
+import React, { useRef } from "react";
+
 import "../assets/style/preview.css"
 import image from "../assets/Images/cv-removebg-preview.png"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import ColorPallet from "../components/ColorPallet"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faHome, faPhone } from "@fortawesome/free-solid-svg-icons"
@@ -17,42 +19,15 @@ export default function Preview({
   experiences,
 }) {
   const [color, setColor] = useState("dark")
-
-  const Doc = () => {
-    return (
-      <PDFDownloadLink
-        document={
-          <Document>
-            <Page size="A4">
-              <View>{print.current}</View>
-            </Page>
-          </Document>
-        }
-        fileName="cv.pdf"
-      >
-        {({ loading }) => (loading ? "Loading document..." : "Download PDF")}
-      </PDFDownloadLink>
-    )
-  }
-
-  const print = useRef()
-
+  useEffect(() => {
+    console.log(informations)
+  })
   return (
     <div className={`preview-left-side `}>
-      <div ref={print} className="preview-container">
+      <div className="preview-container">
         <section className={`left-side ${color}`}>
-          <div className="image-name">
-            <div className="image">
-              <img
-                src={
-                  image.previewUrl
-                    ? image.previewUrl
-                    : "https://d29fhpw069ctt2.cloudfront.net/icon/image/49067/preview.svg"
-                }
-                alt=""
-              />
-            </div>
-            <h3 className="preview-name">{informations?.nom}</h3>
+          <div className="image">
+            <img src={image.previewUrl} alt="" />
           </div>
           <div className="sections">
             <div className="info">
@@ -86,7 +61,7 @@ export default function Preview({
             {languages.length > 0 && (
               <div>
                 <h4 className="p-4 ">
-                  LANGUES <hr />
+                  Langues
                 </h4>
                 <ul className="langues">
                   {languages.map((lang) => {
@@ -109,7 +84,7 @@ export default function Preview({
           {"" != informations.profile && (
             <div className="profile">
               <h4 className="">
-                PROFILE <hr />
+                Profile
               </h4>
               <p>{informations.profile}</p>
             </div>
@@ -117,9 +92,12 @@ export default function Preview({
 
           {experiences.length > 0 && (
             <div className="experiences">
-              <h4 className="">
-                EXPERIENCES PROFESSIONNELLES<hr />
-              </h4>
+              <div className="Sep-titel">
+                <h4 className="">
+                  Experiences
+                </h4>
+
+              </div>
               <div className="experiences-container">
                 {experiences.map((WE) => {
                   return (
@@ -141,9 +119,11 @@ export default function Preview({
 
           {educations.length > 0 && (
             <div className="education">
-              <h4 className="">
-                EDUCATIONS <hr />
-              </h4>
+              <div>
+                <h4 className="Sep-titel">
+                  Educations
+                </h4>
+              </div>
               <div className="educations-container">
                 {educations.map((education) => {
                   return (
@@ -165,9 +145,11 @@ export default function Preview({
 
           {skills.length > 0 && (
             <div className="skills">
-              <h4 className="">
-                COMPETENCES TECHNIQUES <hr />
-              </h4>
+              <div className="Sep-titel">
+                <h4 className="">
+                  Compétances
+                </h4>
+              </div>
               <div className="skills-container">
                 {skills.map((skill) => {
                   return <div>{skill} |</div>
@@ -178,9 +160,12 @@ export default function Preview({
 
           {references.length > 0 && (
             <div className="education">
-              <h4 className="">
-                REFERENCES <hr />
-              </h4>
+              <div className="Sep-titel">
+                <h4 className="">
+                  Réferences
+                </h4>
+
+              </div>
               <div className="ref-container">
                 {references.map((reference) => {
                   return (
@@ -199,17 +184,19 @@ export default function Preview({
               </div>
             </div>
           )}
+
         </section>
       </div>
       <ColorPallet setColor={setColor} />
       {print.current && (
         <>
           <ReactToPrint
-            trigger={() => <button className=""> Imprimer Le Cv</button>}
+            trigger={() => <button className="add-button"> Imprimer Le Cv</button>}
             content={() => print.current}
           />
         </>
       )}
     </div>
+
   )
 }
