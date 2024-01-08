@@ -22,9 +22,10 @@ export default function Preview({
   useEffect(() => {
     console.log(informations)
   })
+  const print = useRef()
   return (
     <div className={`preview-left-side `}>
-      <div className="preview-container">
+      <div ref={print} className="preview-container">
         <section className={`left-side ${color}`}>
           <div className="image">
             <img src={image.previewUrl} alt="" />
@@ -188,7 +189,7 @@ export default function Preview({
         </section>
       </div>
       <ColorPallet setColor={setColor} />
-      {print.current && (
+      {(
         <>
           <ReactToPrint
             trigger={() => <button className="add-button"> Imprimer Le Cv</button>}
