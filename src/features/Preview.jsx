@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faHome, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import ReactToPrint from "react-to-print"
-import { PDFDownloadLink, Page, View, Document } from "@react-pdf/renderer"
+// import { PDFDownloadLink, Page, View, Document } from "@react-pdf/renderer"
 export default function Preview({
   references,
   languages,
