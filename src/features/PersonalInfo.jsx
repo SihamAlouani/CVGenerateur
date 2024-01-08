@@ -11,6 +11,13 @@ function PersonalInfo({
   setInformations,
 }) {
   const [editingIndex, setEditingIndex] = useState(null)
+  const [nameValidationError, setNameValidationError] = useState("")
+  const [titreValidationError, setTitreValidationError] = useState("")
+  const [profileValidationError, setProfileValidationError] = useState("")
+  const [emailValidationError, setEmailValidationError] = useState("")
+  const [addressValidationError, setAddressValidationError] = useState("")
+  const [telValidationError, setTelValidationError] = useState("")
+  const [LinkedInValidationError, setLinkedInValidationError] = useState("")
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -32,27 +39,20 @@ function PersonalInfo({
     }
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (editingIndex !== null) {
-      const newInformations = [...informations]
-      newInformations[editingIndex] = formData
-      setInformations(newInformations)
-      setEditingIndex(null)
+  // useEffect(() => {
+  //   Validation()
+  // })
+  function Validation() {
+    const nameValidation = informations.nom.length == 0
+    if (nameValidation) {
+      setNameValidationError("ce champ est obligatoire")
     } else {
-      setInformations(formData)
+      setNameValidationError("")
     }
-    // setFormData({
-    //   image: "",
-    //   nom: "",
-    //   titre: "",
-    //   profile: "",
-    //   email: "",
-    //   adresse: "",
-    //   phone: "",
-    //   linkden: "",
-    // })
+
+    return nameValidation
   }
+  const handleSubmit = (e) => {}
 
   useEffect(() => {
     console.log("azzaeaz", informations)
@@ -86,6 +86,9 @@ function PersonalInfo({
               onChange={handleChange}
               required
             />{" "}
+            {nameValidationError.length > 0 && (
+              <span className="error">{nameValidationError}</span>
+            )}
           </label>
           <label>
             Titre *
