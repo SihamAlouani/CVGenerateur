@@ -21,7 +21,7 @@ function WorkExperience({ experiences, setExperiences }) {
     useState("")
   const [datestartValidationError, setDatestartValidationError] = useState("")
   const [dateendValidationError, setdateendValidationError] = useState("")
-
+  const [dateComparisonError, setDateComparisonError] = useState("");
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -31,20 +31,30 @@ function WorkExperience({ experiences, setExperiences }) {
   }
 
   const handleSubmit = (e) => {
+    e.preventDefault()
+
     const nameValidation = formData.name.length > 0
     const jobaneValidation = formData.jobname.length > 0
     const jobtypeValidation = formData.jobname.length > 0
     const descriptionValidation = formData.description.length > 0
     const datestartValidation = formData.datestart.length > 0
     const dateendValidation = formData.dateend.length > 0
-    e.preventDefault()
+    let dateDeCommencement = new Date(formData.datestart);
+    let dateDeFin = new Date(formData.dateend);
+    let ComparisondateValidation = dateDeCommencement < dateDeFin;
+    if (!ComparisondateValidation) {
+      setDateComparisonError("La date de fin doit être après la date de commencement");
+    } else {
+      setDateComparisonError("");
+    }
     if (
       nameValidation &&
       jobaneValidation &&
       jobtypeValidation &&
       descriptionValidation &&
       dateendValidation &&
-      datestartValidation
+      datestartValidation &&
+      ComparisondateValidation
     ) {
       if (editingIndex !== null) {
         const newExperiences = [...experiences]
@@ -64,6 +74,8 @@ function WorkExperience({ experiences, setExperiences }) {
       })
       setNameValidationError("")
       setJobnameValidationError("")
+      setDateComparisonError("");
+
       setjobtypeValidationError("")
       setDatestartValidationError("")
       setdateendValidationError("")
@@ -193,6 +205,9 @@ function WorkExperience({ experiences, setExperiences }) {
               value={formData.datestart}
               onChange={handleChange}
             />
+            {dateComparisonError.length > 0 && (
+              <span className="error">{dateComparisonError}</span>
+            )}
             {datestartValidationError && (
               <span className="error">{datestartValidationError}</span>
             )}
@@ -206,6 +221,9 @@ function WorkExperience({ experiences, setExperiences }) {
               value={formData.dateend}
               onChange={handleChange}
             />
+             {dateComparisonError.length > 0 && (
+              <span className="error">{dateComparisonError}</span>
+            )}
             {dateendValidationError && (
               <span className="error">{dateendValidationError}</span>
             )}
