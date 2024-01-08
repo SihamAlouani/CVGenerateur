@@ -15,9 +15,6 @@ const LanguageSection = ({ languages, setLanguages }) => {
     setFormData({ ...formData, [name]: value })
   }
 
-  useEffect(() => {
-    console.log(formData)
-  })
   const handleSubmit = (e) => {
     e.preventDefault()
     if (editingIndex !== null) {
@@ -53,7 +50,7 @@ const LanguageSection = ({ languages, setLanguages }) => {
     <div>
       <form onSubmit={handleSubmit} className="form">
         <label>
-          Language:
+          Langue *
           <input
             type="text"
             name="langue"
@@ -64,7 +61,7 @@ const LanguageSection = ({ languages, setLanguages }) => {
         </label>
 
         <label>
-          Level:
+          Niveau *
           <select
             name="level"
             onChange={handleLanguageChange}
@@ -84,7 +81,7 @@ const LanguageSection = ({ languages, setLanguages }) => {
         </label>
 
         <button type="submit">
-          {editingIndex !== null ? "modifier la langue" : "Ajouter une langue"}
+          {editingIndex !== null ? "Modifier la langue" : "Ajouter une langue"}
         </button>
       </form>
       <div className="display">
@@ -101,7 +98,7 @@ const LanguageSection = ({ languages, setLanguages }) => {
                   className="action delete "
                   onClick={() => handleDelete(index)}
                 >
-                  Delete
+                  Supprimer
                 </button>
                 <button
                   className="action update "

@@ -8,6 +8,7 @@ function PersonalInfo({
   setFormData,
   image,
   setImage,
+  setInformations,
 }) {
   const [editingIndex, setEditingIndex] = useState(null)
   const handleChange = (e) => {
@@ -39,28 +40,28 @@ function PersonalInfo({
       setInformations(newInformations)
       setEditingIndex(null)
     } else {
-      setInformations([...informations, formData])
+      setInformations(formData)
     }
-    setFormData({
-      image: "",
-      nom: "",
-      titre: "",
-      profile: "",
-      email: "",
-      adresse: "",
-      phone: "",
-      linkden: "",
-    })
+    // setFormData({
+    //   image: "",
+    //   nom: "",
+    //   titre: "",
+    //   profile: "",
+    //   email: "",
+    //   adresse: "",
+    //   phone: "",
+    //   linkden: "",
+    // })
   }
 
   useEffect(() => {
-    console.log(formData)
+    console.log("azzaeaz", informations)
   })
 
   return (
     <>
       <div>
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <label HtmlFor="image" className="image-label">
             {" "}
             <FontAwesomeIcon icon={faUpload} className="svg" />
@@ -76,7 +77,7 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Nom Complet
+            Nom Complet *
             <input
               type="text"
               name="nom"
@@ -87,7 +88,7 @@ function PersonalInfo({
             />{" "}
           </label>
           <label>
-            Titre
+            Titre *
             <input
               type="text"
               name="titre"
@@ -98,7 +99,7 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Profil
+            Profile *
             <textarea
               name="profile"
               rows="4"
@@ -110,7 +111,7 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Email
+            Email *
             <input
               type="email"
               name="email"
@@ -121,7 +122,7 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Adresse
+            Adresse *
             <input
               type="text"
               name="adresse"
@@ -132,18 +133,18 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Téléphone
+            Téléphone *
             <input
               type="tel"
               name="phone"
-              placeholder="+33612345678"
+              placeholder="+20 955......"
               value={formData.phone}
               onChange={handleChange}
               required
             />
           </label>
           <label>
-            Linkden
+            Linkedin *
             <input
               type="text"
               name="linkden"
@@ -153,20 +154,6 @@ function PersonalInfo({
               required
             />
           </label>
-          <button
-            type="button"
-            // onMouseEnter={() =>
-            //   (document.getElementById("submitButton").style.backgroundColor =
-            //     "#cf1b1b")
-            // }
-            // onMouseLeave={() =>
-            //   (document.getElementById("submitButton").style.backgroundColor =
-            //     "#cf3e3e")
-            // }
-            className=""
-          >
-            Enregister
-          </button>
         </form>
       </div>
     </>
