@@ -59,7 +59,7 @@ function WorkExperience({ experiences, setExperiences }) {
       <div>
         <form onSubmit={handleSubmit} className="form">
           <label htmlFor="companyname">
-            Nom de l'entreprise :
+            Nom de l'entreprise *
             <input
               type="text"
               name="name"
@@ -72,7 +72,7 @@ function WorkExperience({ experiences, setExperiences }) {
           </label>
 
           <label htmlFor="jobname">
-            l'intitule de post
+            l'intitule de post *
             <input
               type="text"
               name="jobname"
@@ -86,7 +86,7 @@ function WorkExperience({ experiences, setExperiences }) {
 
           <label htmlFor="jobtype">
             {" "}
-            le Type de Travail
+            Type de travail *
             <select
               name="jobtype"
               id="jobtype"
@@ -102,7 +102,7 @@ function WorkExperience({ experiences, setExperiences }) {
           </label>
 
           <label htmlFor="description">
-            description de la mission
+            Description de mission *
             <textarea
               type="text"
               name="description"
@@ -115,7 +115,7 @@ function WorkExperience({ experiences, setExperiences }) {
           </label>
 
           <label htmlFor="datestart">
-            Date de début
+            Date de début *
             <input
               type="date"
               name="datestart"
@@ -126,7 +126,7 @@ function WorkExperience({ experiences, setExperiences }) {
           </label>
 
           <label htmlFor="dateend">
-            Date de fin
+            Date de fin *
             <input
               type="date"
               name="dateend"

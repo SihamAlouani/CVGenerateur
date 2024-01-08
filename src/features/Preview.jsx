@@ -86,7 +86,7 @@ export default function Preview({
             {languages.length > 0 && (
               <div>
                 <h4 className="p-4 ">
-                  Langues <hr />
+                  LANGUES <hr />
                 </h4>
                 <ul className="langues">
                   {languages.map((lang) => {
@@ -109,7 +109,7 @@ export default function Preview({
           {"" != informations.profile && (
             <div className="profile">
               <h4 className="">
-                Profile <hr />
+                PROFILE <hr />
               </h4>
               <p>{informations.profile}</p>
             </div>
@@ -118,7 +118,7 @@ export default function Preview({
           {experiences.length > 0 && (
             <div className="experiences">
               <h4 className="">
-                Experiences <hr />
+                EXPERIENCES PROFESSIONNELLES<hr />
               </h4>
               <div className="experiences-container">
                 {experiences.map((WE) => {
@@ -142,7 +142,7 @@ export default function Preview({
           {educations.length > 0 && (
             <div className="education">
               <h4 className="">
-                Educations <hr />
+                EDUCATIONS <hr />
               </h4>
               <div className="educations-container">
                 {educations.map((education) => {
@@ -166,7 +166,7 @@ export default function Preview({
           {skills.length > 0 && (
             <div className="skills">
               <h4 className="">
-                Compétances <hr />
+                COMPETENCES TECHNIQUES <hr />
               </h4>
               <div className="skills-container">
                 {skills.map((skill) => {
@@ -179,7 +179,7 @@ export default function Preview({
           {references.length > 0 && (
             <div className="education">
               <h4 className="">
-                Réferences <hr />
+                REFERENCES <hr />
               </h4>
               <div className="ref-container">
                 {references.map((reference) => {

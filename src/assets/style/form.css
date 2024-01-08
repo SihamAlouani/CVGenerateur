@@ -32,10 +32,16 @@
 .form button,
 .form select {
   width: 100%;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
+  padding: 1rem 1.5rem;
+  border: 1px solid lightgray;
   display: inline-block;
 }
-
+input::placeholder {
+  color: lightgray;
+}
+input {
+}
 .form button {
   background: var(--primary);
   color: white;

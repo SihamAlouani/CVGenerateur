@@ -11,8 +11,8 @@
   }
 }
 input {
-  border: 1px solid gray;
-  outline: none;
+  /* border: 1px solid gray; */
+  /* outline: none; */
 }
 
 .preview-container {
