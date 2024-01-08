@@ -64,12 +64,11 @@ function References({ references, setReferences }) {
             value={formData.name}
             name="name"
             id="name"
-            required
           />
         </label>
 
         <label htmlFor="tel">
-        Téléphone de chef*
+          Téléphone de chef*
           <input
             type="tel"
             onChange={handleChange}
@@ -77,7 +76,6 @@ function References({ references, setReferences }) {
             name="tele"
             id="tel"
             placeholder="+20 955......"
-            required
           />
         </label>
 
@@ -90,7 +88,6 @@ function References({ references, setReferences }) {
             name="email"
             id="Email"
             placeholder="exemple@gmail.com"
-            required
           />
         </label>
 
@@ -102,7 +99,6 @@ function References({ references, setReferences }) {
             id="entreprise"
             value={formData.entreprise}
             name="entreprise"
-            required
           />
         </label>
 
@@ -115,7 +111,6 @@ function References({ references, setReferences }) {
             value={formData.position}
             id="position"
             placeholder="Ex: Chef de projet "
-            required
           />
         </label>
 

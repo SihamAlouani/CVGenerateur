@@ -2,13 +2,12 @@
 
 ![Logo](jobintech.png)
 
-
-
 ## Présentation
 
 **Présentée par :** Diversity
 
 **Membres de l'équipe :**
+
 - Siham Alouani
 - Nazha ait El Hajja
 - Zidane Aboukhalid
@@ -70,39 +69,49 @@ Explorez ces fonctionnalités pour créer un CV qui vous représente de manière
 L'architecture de notre application de génération de CV en ligne repose sur des composants React modulaires, chacun contribuant de manière spécifique à la création et à la personnalisation du CV. Voici une brève description de chaque composant :
 
 1. **App.js:**
+
    - Composant racine intégrant tous les autres composants.
    - Gère l'état global de l'application et les données du CV.
    - Intègre le composant de prévisualisation et le sélecteur de thème.
 
 2. **Sidebar:**
+
    - Affiche le logo de l'application et les composants pour remplir le CV.
 
 3. **Footer:**
+
    - Contient des informations de bas de page.
 
 4. **PersonalInfo:**
+
    - Formulaire permettant de saisir les informations personnelles (photo, nom, titre, profil, adresse, e-mail, téléphone, LinkedIn).
    - Utilise useState pour gérer l'état local des informations.
 
 5. **Education:**
+
    - Permet aux utilisateurs d'ajouter des informations sur leur formation.
    - Gère l'ajout, la modification et la suppression des entrées de formation.
 
 6. **WorkExperience:**
+
    - Permet aux utilisateurs d'ajouter des informations sur leur expérience professionnelle.
    - Permet d'ajouter plusieurs expériences avec des dates, des missions et des types de travail.
 
 7. **Skills:**
+
    - Permet aux utilisateurs de lister leurs compétences.
    - Gère l'ajout, la modification et la suppression des entrées de compétence.
 
 8. **Languages:**
+
    - Section pour ajouter les langues parlées et leur niveau de maîtrise avec la gestion de chaque langue.
 
 9. **References:**
+
    - Composant optionnel pour ajouter des références professionnelles.
 
 10. **Preview:**
+
     - Composant permettant de visualiser en temps réel les informations saisies dans les autres composants (PersonalInfo, Education, etc.).
 
 11. **ThemeSelector:**
@@ -136,16 +145,15 @@ Si vous souhaitez explorer le code source de notre application de génération d
 2. **Utilisation de Visual Studio Code :**
    - Installez Visual Studio Code sur votre machine s’il n’est pas déjà installé.
    - Ouvrez Visual Studio Code.
-3. **Installation des Dépendances :**   
-   - Dans le terminal, exécutez la commande npm install pour installer toutes les dépendances du
-projet.
+3. **Installation des Dépendances :**
+   - Dans le terminal, exécutez la commande `npm install` pour installer toutes les dépendances du
+     projet.
 4. **Lancement de l’Application en Mode Développement :**
-   - Après l’installation des dépendances, exécutez la commande npm run dev dans le terminal.
+   - Après l’installation des dépendances, exécutez la commande `npm run dev` dans le terminal.
    - Cela lancera l’application en mode développement sur votre machine locale.
-5. **Accès à l’Application :**   
+5. **Accès à l’Application :**
    - Une fois le processus de construction terminé, ouvrez votre navigateur web et accédez à l’URL
-[https://cv-generateur.vercel.app/](https://cv-generateur.vercel.app/) pour voir l’application en action.
+     [http://localhost:5173/](http://localhost:5173/) pour voir l’application en action.
 
 Vous pouvez maintenant explorer le code source, apporter des modifications selon vos besoins et même
 contribuer au développement de l’application si vous le souhaitez.
-
