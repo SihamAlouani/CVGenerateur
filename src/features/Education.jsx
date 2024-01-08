@@ -67,8 +67,8 @@ function Education({ educations, setEducations }) {
               required
             />
           </label>
-          {/* <label htmlFor="date_de_commencement">
-            Date de commencement
+          <label htmlFor="date_de_commencement">
+            Date de commencement *{" "}
             <input
               type="date"
               name="date_de_commencement"
@@ -76,7 +76,7 @@ function Education({ educations, setEducations }) {
               onChange={handleChange}
               required
             />
-          </label> */}
+          </label> 
           <label htmlFor="date_de_fin">
             Date de fin *{" "}
             <input
@@ -125,7 +125,8 @@ function Education({ educations, setEducations }) {
                 <div className="content">
                   <div className="d-grid">
                     <span>Diplome:{perI.diplome}</span>
-                    <span>date: de Fin{perI.date_de_fin}</span>
+                    <span>date de Commencement:{perI.date_de_commencement}</span>
+                    <span>date de Fin:{perI.date_de_fin}</span>
                     <span>Ecole:{perI.ecole}</span>
                     <span>Location:{perI.location}</span>
                     <div className="actions">
