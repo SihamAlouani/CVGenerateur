@@ -12,15 +12,8 @@ import image from "../assets/Images/cv-removebg-preview.png"
 const Footer = () => {
   return (
     <footer>
-      <div className="logodv">
-        <img
-          src={image}
-          alt=""
-          style={{ width: "50px", height: "50px", borderRadius: "10px" }}
-        />
-      </div>
-      <div>© 2023 - CvGenerator</div>
       <div className="Linkdv">
+        <div className="copy-right">© 2023 - CvGenerator</div>
         <a href="https://twitter.com">
           <FontAwesomeIcon className="icon" icon={faTwitter} />
         </a>
@@ -33,6 +26,9 @@ const Footer = () => {
         <a href="https://LinkedIn.com">
           <FontAwesomeIcon className="icon" icon={faLinkedin} />
         </a>
+      </div>
+      <div className="logodv">
+        <img src={image} alt="" style={{ width: "25px", height: "25px" }} />
       </div>
     </footer>
   )
