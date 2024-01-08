@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 
 function References({ references, setReferences }) {
   const [editingIndex, setEditingIndex] = useState(null)
@@ -16,6 +18,13 @@ function References({ references, setReferences }) {
     setFormData({
       ...formData,
       [name]: value,
+    })
+  }
+  const handleChangeNumber = (e) => {
+    const { name, value } = e.target
+    setFormData({
+      ...formData,
+      [name]: value.replace(/\D/g, ""),
     })
   }
   const [nomchefValidationError, setnomchefValidationError] = useState("")
@@ -62,48 +71,35 @@ function References({ references, setReferences }) {
       setEmailValidationError("")
       setnomEntreValidationError("")
       setpostenomValidationError("")
-    }else{
-      if(!nomchefValidation){
+    } else {
+      if (!nomchefValidation) {
         setnomchefValidationError("ce champ est obligatoire")
-      }
-      else{
+      } else {
         setnomchefValidationError("")
-
       }
-      if(!telephValidation){
+      if (!telephValidation) {
         settelephChefValidationError("ce champ est obligatoire")
-      }
-      else{
+      } else {
         settelephChefValidationError("")
-
       }
-      if(!EmailValidation){
+      if (!EmailValidation) {
         setEmailValidationError("ce champ est obligatoire")
-      }
-      else{
+      } else {
         setEmailValidationError("")
-
       }
-      if(!nomEntreValidation){
+      if (!nomEntreValidation) {
         console.log(nomEntreValidation)
         setnomEntreValidationError("ce champ est obligatoire")
-      }
-      else{
+      } else {
         setnomEntreValidationError("")
-
       }
-      if(!positionValidation){
+      if (!positionValidation) {
         setpostenomValidationError("ce champ est obligatoire")
-      }
-      else{
+      } else {
         setpostenomValidationError("")
-
       }
     }
   }
-
-
-
 
   const handleEdit = (index) => {
     setFormData(references[index])
@@ -129,24 +125,24 @@ function References({ references, setReferences }) {
             name="name"
             id="name"
           />
-           {nomchefValidationError.length > 0 && (
-              <span className="error">{nomchefValidationError}</span>
-            )}
+          {nomchefValidationError.length > 0 && (
+            <span className="error">{nomchefValidationError}</span>
+          )}
         </label>
 
         <label htmlFor="tel">
           Téléphone de chef*
           <input
             type="tel"
-            onChange={handleChange}
+            onChange={handleChangeNumber}
             value={formData.tele}
             name="tele"
             id="tel"
             placeholder="+20 955......"
           />
-           {telephChefValidationError.length > 0 && (
-              <span className="error">{telephChefValidationError}</span>
-            )}
+          {telephChefValidationError.length > 0 && (
+            <span className="error">{telephChefValidationError}</span>
+          )}
         </label>
 
         <label htmlFor="Email">
@@ -159,9 +155,9 @@ function References({ references, setReferences }) {
             id="Email"
             placeholder="exemple@gmail.com"
           />
-           {EmailValidationError.length > 0 && (
-              <span className="error">{EmailValidationError}</span>
-            )}
+          {EmailValidationError.length > 0 && (
+            <span className="error">{EmailValidationError}</span>
+          )}
         </label>
 
         <label htmlFor="entreprise">
@@ -173,9 +169,9 @@ function References({ references, setReferences }) {
             value={formData.entreprise}
             name="entreprise"
           />
-           {nomEntreValidationError.length > 0 && (
-              <span className="error">{nomEntreValidationError}</span>
-            )}
+          {nomEntreValidationError.length > 0 && (
+            <span className="error">{nomEntreValidationError}</span>
+          )}
         </label>
 
         <label htmlFor="position">
@@ -188,9 +184,9 @@ function References({ references, setReferences }) {
             id="position"
             placeholder="Ex: Chef de projet "
           />
-           {postenomValidationError.length > 0 && (
-              <span className="error">{postenomValidationError}</span>
-            )}
+          {postenomValidationError.length > 0 && (
+            <span className="error">{postenomValidationError}</span>
+          )}
         </label>
 
         <button>
@@ -201,21 +197,25 @@ function References({ references, setReferences }) {
         {references.map(
           ({ name, tele, email, entreprise, position }, index) => (
             <CollapseSection index={index} title={name}>
-              <p>Entreprise : {entreprise}</p>
-              <p>Poste de chef : {position}</p>
-              <p>Email de chef : {email}</p>
-              <p>Téléphone: {tele}</p>
+              <div className="ref-display">
+                <p>Entreprise : {entreprise}</p>
+                <p>Poste de chef : {position}</p>
+                <p>Email de chef : {email}</p>
+                <p>Téléphone: {tele}</p>
+              </div>
               <div className="actions">
                 <button
                   className="action update action-button"
                   onClick={() => handleEdit(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faEdit} />
                   Modifier
                 </button>
                 <button
                   className="action delete action-button"
                   onClick={() => handleDelete(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faTrash} />
                   Supprimer
                 </button>
               </div>

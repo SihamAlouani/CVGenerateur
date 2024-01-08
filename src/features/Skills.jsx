@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import "../assets/style/skills.css"
 import CollapseSection from "../components/CollapseSection"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 
 function Skills({ skills, setSkills }) {
   const [formData, setFormData] = useState("")
@@ -68,16 +70,18 @@ function Skills({ skills, setSkills }) {
               <div> {skill} </div>
               <div className="actions">
                 <button
-                  className="action delete action-button"
-                  onClick={() => handleDelete(index)}
-                >
-                  Supprimer
-                </button>
-                <button
                   className="action update action-button"
                   onClick={() => handleEdite(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faEdit} />
                   Modifier
+                </button>
+                <button
+                  className="action delete action-button"
+                  onClick={() => handleDelete(index)}
+                >
+                  <FontAwesomeIcon className="icon" icon={faTrash} />
+                  Supprimer
                 </button>
               </div>
             </div>

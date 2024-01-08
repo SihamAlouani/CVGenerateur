@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 //import "../assets/style/WorkExperience.css";
 
 function WorkExperience({ experiences, setExperiences }) {
@@ -233,12 +235,14 @@ function WorkExperience({ experiences, setExperiences }) {
                   className="action update action-button"
                   onClick={() => handleEdit(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faEdit} />
                   Modifier
                 </button>
                 <button
                   className="action delete action-button"
                   onClick={() => handleDelete(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faTrash} />
                   Supprimer
                 </button>
               </div>

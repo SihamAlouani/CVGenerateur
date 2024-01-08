@@ -25,26 +25,26 @@ li {
 }
 .action.delete {
   color: rgb(255, 252, 252);
-  background: rgb(155, 1, 1);
+  background: rgb(238, 49, 49);
 }
 
 .action-button {
+  font-size: 0.8rem;
   font-family: inherit;
-  font-size: 17px;
+  /* font-size: 17px; */
   display: flex;
-  padding-left: 0.8em;
-  padding-right: 0.8em;
+  padding: 0.75rem;
   display: flex;
-  gap: 8px;
-  border-radius: 7px;
+
   align-items: center;
   border: none;
-  overflow: hidden;
+  display: flex;
+  gap: 1rem;
   cursor: pointer;
 }
 .action.update {
   color: white;
-  background: rgb(1, 135, 1);
+  background: rgb(13, 194, 13);
 }
 
 .display .content {
@@ -55,6 +55,11 @@ li {
 .actions {
   display: flex;
   gap: 0.25rem;
+}
+.ref-display {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 .app-content {
   display: grid;

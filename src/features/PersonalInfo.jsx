@@ -23,6 +23,13 @@ function PersonalInfo({
     const { name, value } = e.target
     setFormData({
       ...formData,
+      [name]: value,
+    })
+  }
+  const handleChangeNumber = (e) => {
+    const { name, value } = e.target
+    setFormData({
+      ...formData,
       [name]: value.replace(/\D/g, ""),
     })
   }
@@ -134,7 +141,7 @@ function PersonalInfo({
               name="phone"
               placeholder="+20 955......"
               value={formData.phone}
-              onChange={handleChange}
+              onChange={handleChangeNumber}
               required
             />
           </label>

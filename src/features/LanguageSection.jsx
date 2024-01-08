@@ -1,6 +1,8 @@
 // LanguageSection.jsx
 import React, { useEffect, useState } from "react"
 import CollapseSection from "../components/CollapseSection"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 
 const LanguageSection = ({ languages, setLanguages }) => {
   const [formData, setFormData] = useState({
@@ -15,18 +17,17 @@ const LanguageSection = ({ languages, setLanguages }) => {
     setFormData({ ...formData, [name]: value })
   }
   const [LangueValidationError, setLangueValidationError] = useState("")
-  const [LevelValidationError , setLevelValidationError]=useState("")
-  
+  const [LevelValidationError, setLevelValidationError] = useState("")
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    let langueValidation = formData.langue.length > 0;
-    let levelValidation = formData.level.length >0;
-    if(langueValidation && levelValidation)
-    {
+    let langueValidation = formData.langue.length > 0
+    let levelValidation = formData.level.length > 0
+    if (langueValidation && levelValidation) {
       if (editingIndex !== null) {
         const newLanguage = [...languages]
         newLanguage[editingIndex] = formData
-  
+
         setLanguages(newLanguage)
         setEditingIndex(null)
       } else {
@@ -38,29 +39,18 @@ const LanguageSection = ({ languages, setLanguages }) => {
       })
       setLangueValidationError("")
       setLevelValidationError("")
-    }
-    else{
-      if(!langueValidation)
-      {
+    } else {
+      if (!langueValidation) {
         setLangueValidationError("ce champ est obligatoire")
-        
-      }
-      else{
+      } else {
         setLangueValidationError("")
-
-
       }
-      if(!levelValidation)
-      {
+      if (!levelValidation) {
         setLevelValidationError("ce champ est obligatoire")
-
-      }
-      else{
+      } else {
         setLevelValidationError("")
       }
-    
     }
-   
   }
 
   const handleEdite = (index) => {
@@ -112,10 +102,9 @@ const LanguageSection = ({ languages, setLanguages }) => {
               )
             })}
           </select>
-          
-          {LevelValidationError.length >0 && (
-              <span className="error">{LevelValidationError}</span>
-            )}
+          {LevelValidationError.length > 0 && (
+            <span className="error">{LevelValidationError}</span>
+          )}
         </label>
 
         <button type="submit">
@@ -133,16 +122,18 @@ const LanguageSection = ({ languages, setLanguages }) => {
               </div>
               <div className="actions">
                 <button
-                  className="action delete  action-button"
-                  onClick={() => handleDelete(index)}
-                >
-                  Supprimer
-                </button>
-                <button
                   className="action update  action-button"
                   onClick={() => handleEdite(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faEdit} />
                   Modifier
+                </button>
+                <button
+                  className="action delete  action-button"
+                  onClick={() => handleDelete(index)}
+                >
+                  <FontAwesomeIcon className="icon" icon={faTrash} />
+                  Supprimer
                 </button>
               </div>
             </div>
