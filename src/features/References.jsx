@@ -18,28 +18,92 @@ function References({ references, setReferences }) {
       [name]: value,
     })
   }
+  const [nomchefValidationError, setnomchefValidationError] = useState("")
+  const [telephChefValidationError, settelephChefValidationError] = useState("")
+  const [EmailValidationError, setEmailValidationError] = useState("")
+  const [nomEntreValidationError, setnomEntreValidationError] = useState("")
+  const [postenomValidationError, setpostenomValidationError] = useState("")
 
   const handleSubmit = (e) => {
-    if (editingIndex !== null) {
-      const newReferences = [...references]
-      newReferences[editingIndex] = formData
-      setReferences(newReferences)
-      setEditingIndex(null)
-      console.log(references)
-    } else {
-      setReferences([...references, formData])
-      console.log(references)
-    }
     e.preventDefault()
+    let nomchefValidation = formData.name.length > 0
+    let telephValidation = formData.tele.length > 0
+    let EmailValidation = formData.email.length > 0
+    let nomEntreValidation = formData.entreprise.length > 0
+    let positionValidation = formData.position.length > 0
+    if (
+      nomchefValidation &&
+      telephValidation &&
+      EmailValidation &&
+      nomEntreValidation &&
+      positionValidation
+    ) {
+      if (editingIndex !== null) {
+        const newReferences = [...references]
+        newReferences[editingIndex] = formData
+        setReferences(newReferences)
+        setEditingIndex(null)
+        console.log(references)
+      } else {
+        setReferences([...references, formData])
+        console.log(references)
+      }
+      e.preventDefault()
 
-    setFormData({
-      name: "",
-      tele: "",
-      email: "",
-      entreprise: "",
-      position: "",
-    })
+      setFormData({
+        name: "",
+        tele: "",
+        email: "",
+        entreprise: "",
+        position: "",
+      })
+      setnomchefValidationError("")
+      settelephChefValidationError("")
+      setEmailValidationError("")
+      setnomEntreValidationError("")
+      setpostenomValidationError("")
+    }else{
+      if(!nomchefValidation){
+        setnomchefValidationError("ce champ est obligatoire")
+      }
+      else{
+        setnomchefValidationError("")
+
+      }
+      if(!telephValidation){
+        settelephChefValidationError("ce champ est obligatoire")
+      }
+      else{
+        settelephChefValidationError("")
+
+      }
+      if(!EmailValidation){
+        setEmailValidationError("ce champ est obligatoire")
+      }
+      else{
+        setEmailValidationError("")
+
+      }
+      if(!nomEntreValidation){
+        console.log(nomEntreValidation)
+        setnomEntreValidationError("ce champ est obligatoire")
+      }
+      else{
+        setnomEntreValidationError("")
+
+      }
+      if(!positionValidation){
+        setpostenomValidationError("ce champ est obligatoire")
+      }
+      else{
+        setpostenomValidationError("")
+
+      }
+    }
   }
+
+
+
 
   const handleEdit = (index) => {
     setFormData(references[index])
@@ -64,12 +128,15 @@ function References({ references, setReferences }) {
             value={formData.name}
             name="name"
             id="name"
-            required
+            // required
           />
+           {nomchefValidationError.length > 0 && (
+              <span className="error">{nomchefValidationError}</span>
+            )}
         </label>
 
         <label htmlFor="tel">
-        Téléphone de chef*
+          Téléphone de chef*
           <input
             type="tel"
             onChange={handleChange}
@@ -77,8 +144,12 @@ function References({ references, setReferences }) {
             name="tele"
             id="tel"
             placeholder="+20 955......"
-            required
+            // required
+
           />
+           {telephChefValidationError.length > 0 && (
+              <span className="error">{telephChefValidationError}</span>
+            )}
         </label>
 
         <label htmlFor="Email">
@@ -90,8 +161,12 @@ function References({ references, setReferences }) {
             name="email"
             id="Email"
             placeholder="exemple@gmail.com"
-            required
+            // required
+
           />
+           {EmailValidationError.length > 0 && (
+              <span className="error">{EmailValidationError}</span>
+            )}
         </label>
 
         <label htmlFor="entreprise">
@@ -102,8 +177,12 @@ function References({ references, setReferences }) {
             id="entreprise"
             value={formData.entreprise}
             name="entreprise"
-            required
+            // required
+
           />
+           {nomEntreValidationError.length > 0 && (
+              <span className="error">{nomEntreValidationError}</span>
+            )}
         </label>
 
         <label htmlFor="position">
@@ -115,8 +194,12 @@ function References({ references, setReferences }) {
             value={formData.position}
             id="position"
             placeholder="Ex: Chef de projet "
-            required
+            // required
+
           />
+           {postenomValidationError.length > 0 && (
+              <span className="error">{postenomValidationError}</span>
+            )}
         </label>
 
         <button>

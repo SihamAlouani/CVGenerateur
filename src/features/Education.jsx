@@ -71,7 +71,7 @@ function Education({ educations, setEducations }) {
       setVilleValidationError("")
     } else {
       if (!diplomeValidation) {
-        setDiplomeValidationError("ce champ est obligatoire")
+        setDiplomeValidationError("ce champ est obligatiore")
       } else {
         setDiplomeValidationError("")
       }
