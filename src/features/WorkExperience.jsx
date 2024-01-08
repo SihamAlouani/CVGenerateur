@@ -2,8 +2,7 @@ import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 //import "../assets/style/WorkExperience.css";
 
-function WorkExperience() {
-  const [experiences, setExperiences] = useState([])
+function WorkExperience({ experiences, setExperiences }) {
   const [formData, setFormData] = useState({
     name: "",
     jobname: "",
@@ -147,9 +146,29 @@ function WorkExperience() {
         <div className="display">
           {experiences.map((experience, index) => (
             <CollapseSection key={index} title={experience.name}>
-              <p>{`Entreprise: ${experience.name}, Poste: ${experience.jobname}, Type de travail: ${experience.jobtype},Description:${experience.description}, Date de début: ${experience.datestart}, Date de fin: ${experience.dateend}`}</p>
-              <button onClick={() => handleEdit(index)}>Modifier</button>
-              <button onClick={() => handleDelete(index)}>Supprimer</button>
+              <div className="d-grid">
+                <span>Nom de l'entreprise : {experience.name}</span>
+                <span>Poste : {experience.jobname}</span>
+                <span>Type de travail: {experience.jobtype}</span>
+                <span>Description: {experience.description}</span>
+                <span>
+                  Périod :{experience.datestart}-{experience.dateend}
+                </span>
+              </div>
+              <div className="actions">
+                <button
+                  className="action update"
+                  onClick={() => handleEdit(index)}
+                >
+                  Modifier
+                </button>
+                <button
+                  className="action delete"
+                  onClick={() => handleDelete(index)}
+                >
+                  Supprimer
+                </button>
+              </div>
             </CollapseSection>
           ))}
         </div>

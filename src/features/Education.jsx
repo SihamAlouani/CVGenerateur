@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 
-function Education() {
-  const [personalInf, setPersonalInf] = useState([])
+function Education({ educations, setEducations }) {
   const [formData, setFormData] = useState({
     diplome: "",
     date_de_commencement: "",
@@ -23,12 +22,12 @@ function Education() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (editingIndex !== null) {
-      const newPersonalInf = [...personalInf]
+      const newPersonalInf = [...educations]
       newPersonalInf[editingIndex] = formData
-      setPersonalInf(newPersonalInf)
+      setEducations(newPersonalInf)
       setEditingIndex(null)
     } else {
-      setPersonalInf([...personalInf, formData])
+      setEducations([...educations, formData])
     }
 
     setFormData({
@@ -41,14 +40,14 @@ function Education() {
   }
 
   const handleEdit = (index) => {
-    setFormData(personalInf[index])
+    setFormData(educations[index])
     setEditingIndex(index)
   }
 
   const handleDelete = (index) => {
-    const newPersonalInf = [...personalInf]
+    const newPersonalInf = [...educations]
     newPersonalInf.splice(index, 1)
-    setPersonalInf(newPersonalInf)
+    setEducations(newPersonalInf)
     setEditingIndex(null)
   }
 
@@ -57,7 +56,7 @@ function Education() {
       <div>
         <form className="form" onSubmit={handleSubmit}>
           <label>
-            Diplome{" "}
+          Nom diplôme * {" "}
             <input
               type="text"
               name="diplome"
@@ -68,7 +67,7 @@ function Education() {
               required
             />
           </label>
-          <label htmlFor="date_de_commencement">
+          {/* <label htmlFor="date_de_commencement">
             Date de commencement
             <input
               type="date"
@@ -77,9 +76,9 @@ function Education() {
               onChange={handleChange}
               required
             />
-          </label>
+          </label> */}
           <label htmlFor="date_de_fin">
-            Date de fin{" "}
+            Date de fin *{" "}
             <input
               type="date"
               name="date_de_fin"
@@ -89,7 +88,7 @@ function Education() {
             />
           </label>
           <label htmlFor="ecole">
-            Ecole{" "}
+          Nom d'établissement *{" "}
             <input
               type="text"
               name="ecole"
@@ -101,7 +100,7 @@ function Education() {
             />
           </label>
           <label htmlFor="location">
-            Location{" "}
+            Ville * {" "}
             <input
               type="text"
               name="location"
@@ -114,29 +113,35 @@ function Education() {
           </label>{" "}
           <button type="submit">
             {editingIndex !== null
-              ? "Modifier information"
-              : "Ajouter information"}
+              ? "Modifier Education"
+              : "Ajouter Eduction"}
           </button>
         </form>
 
         <div className="display">
-          {personalInf.map((perI) => {
+          {educations.map((perI, index) => {
             return (
               <CollapseSection title={perI.diplome}>
                 <div className="content">
-                  <div className="actions">
-                    <button
-                      className="action delete"
-                      onClick={() => handleEdit(index)}
-                    >
-                      Modifier
-                    </button>
-                    <button
-                      className="action update"
-                      onClick={() => handleDelete(index)}
-                    >
-                      Supprimer
-                    </button>
+                  <div className="d-grid">
+                    <span>Diplome:{perI.diplome}</span>
+                    <span>date: de Fin{perI.date_de_fin}</span>
+                    <span>Ecole:{perI.ecole}</span>
+                    <span>Location:{perI.location}</span>
+                    <div className="actions">
+                      <button
+                        className="action update"
+                        onClick={() => handleEdit(index)}
+                      >
+                        Modifier
+                      </button>
+                      <button
+                        className="action delete"
+                        onClick={() => handleDelete(index)}
+                      >
+                        Supprimer
+                      </button>
+                    </div>
                   </div>
                 </div>
               </CollapseSection>

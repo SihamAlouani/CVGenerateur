@@ -21,6 +21,8 @@ function App() {
   const [languages, setLanguages] = useState([])
   const [informations, setInformations] = useState([])
   const [skills, setSkills] = useState([])
+  const [educations, setEducations] = useState([])
+  const [experiences, setExperiences] = useState([])
   const [formData, setFormData] = useState({
     nom: "",
     titre: "",
@@ -32,13 +34,7 @@ function App() {
   })
   const [image, setImage] = useState({ file: "", previewUrl: "" })
   const [page, setPage] = useState("Information Personelle")
-  function test() {
-    let original = document.body.innerHTML
-    let content = document.querySelector("#test").innerHTML
-    document.body.innerHTML = content
-    window.print()
-    document.body.innerHTML = original
-  }
+
   return (
     <div className="app">
       {/* routes */}
@@ -59,26 +55,32 @@ function App() {
               />
             </CustomRoute>
             <CustomRoute path="Education" page={page}>
-              <h1>this is Education </h1>
-              <Education />
+              <h1> Education </h1>
+              <Education
+                educations={educations}
+                setEducations={setEducations}
+              />
             </CustomRoute>
             <CustomRoute path="Experiences" page={page}>
-              <h1>Expérience Professionnelle</h1>
-              <WorkExperience></WorkExperience>
+              <h1>Expériences Professionnelles</h1>
+              <WorkExperience
+                experiences={experiences}
+                setExperiences={setExperiences}
+              ></WorkExperience>
             </CustomRoute>
             <CustomRoute path="Compétances" page={page}>
-              <h1>this is Compétances </h1>
+              <h1>Compétances théchniques</h1>
               <Skills skills={skills} setSkills={setSkills} />
             </CustomRoute>
             <CustomRoute path="Langues" page={page}>
-              <h1>Languages</h1>
+              <h1>Langues</h1>
               <LanguageSection
                 languages={languages}
                 setLanguages={setLanguages}
               />
             </CustomRoute>
             <CustomRoute path="Références" page={page}>
-              <h1>this is Références </h1>
+              <h1>Références </h1>
               <References
                 references={references}
                 setReferences={setReferences}
@@ -87,10 +89,13 @@ function App() {
           </div>
 
           <Preview
-            informations={informations}
+            informations={formData}
             references={references}
             languages={languages}
+            educations={educations}
             image={image}
+            skills={skills}
+            experiences={experiences}
           />
         </div>
       </div>

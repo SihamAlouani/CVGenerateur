@@ -6,9 +6,8 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
-
+import "../assets/style/footer.css"
 import image from "../assets/Images/cv-removebg-preview.png"
-
 
 const Footer = () => {
   return (
@@ -20,6 +19,7 @@ const Footer = () => {
           style={{ width: "50px", height: "50px", borderRadius: "10px" }}
         />
       </div>
+      <div>© 2023 - CvGenerator</div>
       <div className="Linkdv">
         <a href="https://twitter.com">
           <FontAwesomeIcon className="icon" icon={faTwitter} />
@@ -33,7 +33,7 @@ const Footer = () => {
         <a href="https://LinkedIn.com">
           <FontAwesomeIcon className="icon" icon={faLinkedin} />
         </a>
-      </div> 
+      </div>
     </footer>
   )
 }

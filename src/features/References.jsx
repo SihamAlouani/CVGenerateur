@@ -124,12 +124,24 @@ function References({ references, setReferences }) {
         {references.map(
           ({ name, tele, email, entreprise, position }, index) => (
             <CollapseSection index={index} title={name}>
-              <p>{entreprise}</p>
-              <p>{position}</p>
-              <p>{email}</p>
-              <p>{tele}</p>
-              <button onClick={() => handleEdit(index)}>Modifier</button>
-              <button onClick={() => handleDelete(index)}>Supprimer</button>
+              <p>Entreprise : {entreprise}</p>
+              <p>Poste : {position}</p>
+              <p>Email: {email}</p>
+              <p>Telephone: {tele}</p>
+              <div className="actions">
+                <button
+                  className="action update"
+                  onClick={() => handleEdit(index)}
+                >
+                  Modifier
+                </button>
+                <button
+                  className="action delete"
+                  onClick={() => handleDelete(index)}
+                >
+                  Supprimer
+                </button>
+              </div>
             </CollapseSection>
           )
         )}
