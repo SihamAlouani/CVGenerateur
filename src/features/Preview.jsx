@@ -188,6 +188,14 @@ export default function Preview({
         </section>
       </div>
       <ColorPallet setColor={setColor} />
+      {print.current && (
+        <>
+          <ReactToPrint
+            trigger={() => <button className="add-button"> Imprimer Le Cv</button>}
+            content={() => print.current}
+          />
+        </>
+      )}
     </div>
 
   )
