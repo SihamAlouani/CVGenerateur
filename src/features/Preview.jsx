@@ -71,7 +71,7 @@ export default function Preview({
 
             {languages.length > 0 && (
               <div>
-                <h4 className="p-4 ">Langues</h4>
+                <h4 className="p-4">Langues</h4>
                 <ul className="langues">
                   {languages.map((lang) => {
                     return (

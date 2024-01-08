@@ -1,15 +1,3 @@
-@page {
-  size: "a4";
-}
-@media print {
-  .preview-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-}
 .Sep-titel {
   background-color: aqua;
   /* width: 10rem; */
@@ -27,7 +15,7 @@ input {
   display: grid;
   grid-template-columns: 1.25fr 2fr;
 
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   overflow: hidden;
   box-shadow: 1px 1px 3px gray;
 }
@@ -50,7 +38,7 @@ input {
 
 .preview-container .image-name {
   display: grid;
-  /* gap: 1rem; */
+  gap: 0.5rem;
 }
 .preview-container .sections {
   display: grid;
@@ -72,6 +60,7 @@ input {
   gap: 0.5rem;
   /* padding: 2em; */
   position: relative;
+  max-width: 150px;
 }
 .preview-container .preview-name {
   text-align: center;
@@ -199,4 +188,18 @@ input {
   padding: 1rem 1.5rem;
   border: 1px solid lightgray;
   display: inline-block;
+}
+
+@page {
+  size: "a4";
+}
+@media print {
+  .preview-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 1rem;
+  }
 }
