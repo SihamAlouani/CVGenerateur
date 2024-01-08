@@ -21,12 +21,32 @@
   border: none;
 }
 .action.delete {
-  background: var(--base-red);
-  color: var(--font-red);
+ 
+  color: rgb(255, 252, 252);
+  background: rgb(155, 1, 1);
+
+}
+
+
+.action-button{
+  font-family: inherit;
+  font-size: 17px;
+  display: flex;
+  padding-left:0.8em;
+  padding-right:0.8em;
+display: flex;
+gap: 8px;
+border-radius: 7px;
+  align-items: center; 
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  
 }
 .action.update {
-  background: var(--base-green);
-  color: var(--font-green);
+ 
+  color: white;
+  background: rgb(1, 135, 1);
 }
 
 .display .content {

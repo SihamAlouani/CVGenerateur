@@ -1,5 +1,11 @@
 import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  
+ 
+} from "@fortawesome/free-brands-svg-icons"
+import { faDeleteLeft, faEdit, faTrash, faUpRightAndDownLeftFromCenter } from "@fortawesome/free-solid-svg-icons"
 
 function Education({ educations, setEducations }) {
   const [formData, setFormData] = useState({
@@ -197,15 +203,18 @@ function Education({ educations, setEducations }) {
                     <span>Ville :{perI.location}</span>
                     <div className="actions">
                       <button
-                        className="action update"
+                        className="action update action-button"
                         onClick={() => handleEdit(index)}
                       >
+                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                        
                         Modifier
                       </button>
                       <button
-                        className="action delete"
+                        className="action delete action-button"
                         onClick={() => handleDelete(index)}
                       >
+                        <FontAwesomeIcon className="icon" icon={faTrash} />
                         Supprimer
                       </button>
                     </div>
