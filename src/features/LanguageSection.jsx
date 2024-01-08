@@ -95,13 +95,13 @@ const LanguageSection = ({ languages, setLanguages }) => {
               </div>
               <div className="actions">
                 <button
-                  className="action delete "
+                  className="action delete  action-button"
                   onClick={() => handleDelete(index)}
                 >
                   Supprimer
                 </button>
                 <button
-                  className="action update "
+                  className="action update  action-button"
                   onClick={() => handleEdite(index)}
                 >
                   Modifier

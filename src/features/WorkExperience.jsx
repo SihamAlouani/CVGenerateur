@@ -157,13 +157,13 @@ function WorkExperience({ experiences, setExperiences }) {
               </div>
               <div className="actions">
                 <button
-                  className="action update"
+                  className="action update action-button"
                   onClick={() => handleEdit(index)}
                 >
                   Modifier
                 </button>
                 <button
-                  className="action delete"
+                  className="action delete action-button"
                   onClick={() => handleDelete(index)}
                 >
                   Supprimer
