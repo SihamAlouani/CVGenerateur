@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faHome, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import ReactToPrint from "react-to-print"
-// import { PDFDownloadLink, Page, View, Document } from "@react-pdf/renderer"
+import { PDFDownloadLink, Page, View, Document } from "@react-pdf/renderer"
 export default function Preview({
   references,
   languages,
@@ -30,7 +30,6 @@ export default function Preview({
           <div className="image">
             <img src={image.previewUrl} alt="" />
           </div>
-          <h3 className="preview-name">{informations?.nom}</h3>
           <div className="sections">
             <div className="info">
               {informations.email != "" && (
@@ -82,16 +81,16 @@ export default function Preview({
             <h1 className="titre">{informations.titre}</h1>
           )}
           {"" != informations.profile && (
-            <div className="profile">
-              <h4 className="">Profile</h4>
+            <div>
+              <h4 className={`Sep-titel ${color}`}>Profile</h4>
               <p>{informations.profile}</p>
             </div>
           )}
 
           {experiences.length > 0 && (
             <div className="experiences">
-              <div className="Sep-titel">
-                <h4 className="">Experiences</h4>
+              <div>
+                <h4 className={`Sep-titel ${color}`}>Experiences</h4>
               </div>
               <div className="experiences-container">
                 {experiences.map((WE) => {
@@ -115,7 +114,7 @@ export default function Preview({
           {educations.length > 0 && (
             <div className="education">
               <div>
-                <h4 className="Sep-titel">Educations</h4>
+                <h4 className={`Sep-titel ${color}`}>Educations</h4>
               </div>
               <div className="educations-container">
                 {educations.map((education) => {
@@ -138,7 +137,7 @@ export default function Preview({
 
           {skills.length > 0 && (
             <div className="skills">
-              <div className="Sep-titel">
+              <div className={`Sep-titel ${color}`}>
                 <h4 className="">Compétances</h4>
               </div>
               <div className="skills-container">
@@ -151,7 +150,7 @@ export default function Preview({
 
           {references.length > 0 && (
             <div className="education">
-              <div className="Sep-titel">
+              <div className={`Sep-titel ${color}`}>
                 <h4 className="">Réferences</h4>
               </div>
               <div className="ref-container">
@@ -175,15 +174,16 @@ export default function Preview({
         </section>
       </div>
       <ColorPallet setColor={setColor} />
-
-      <>
-        <ReactToPrint
-          trigger={() => (
-            <button className="add-button"> Imprimer Le Cv</button>
-          )}
-          content={() => print.current}
-        />
-      </>
+      {
+        <>
+          <ReactToPrint
+            trigger={() => (
+              <button className="add-button"> Imprimer Le Cv</button>
+            )}
+            content={() => print.current}
+          />
+        </>
+      }
     </div>
   )
 }
