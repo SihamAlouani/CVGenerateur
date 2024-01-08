@@ -13,8 +13,8 @@
 .prev {
   box-shadow: 0px 0px 3px gray, 1px 1px 3px gray;
 }
-li {
-  list-style: non;
+.langues li {
+  list-style: none !important;
 }
 .action {
   padding: 0.5rem 0.25rem;

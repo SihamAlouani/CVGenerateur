@@ -1,4 +1,4 @@
-import { faUpload } from "@fortawesome/free-solid-svg-icons"
+import { faImages, faUpload } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 
@@ -63,7 +63,7 @@ function PersonalInfo({
         <form className="form" onSubmit={handleSubmit}>
           <label HtmlFor="image" className="image-label">
             {" "}
-            <FontAwesomeIcon icon={faUpload} className="svg" />
+            <FontAwesomeIcon icon={faImages} className="svg" />
             <span>Télecharger une image</span>
             <input
               type="file"
