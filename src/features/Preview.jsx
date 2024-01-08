@@ -27,8 +27,18 @@ export default function Preview({
     <div className={`preview-left-side `}>
       <div ref={print} className="preview-container">
         <section className={`left-side ${color}`}>
-          <div className="image">
-            <img src={image.previewUrl} alt="" />
+          <div className="image-name">
+            <div className="image">
+              <img
+                src={
+                  image.previewUrl
+                    ? image.previewUrl
+                    : "https://d29fhpw069ctt2.cloudfront.net/icon/image/49067/preview.svg"
+                }
+                alt=""
+              />
+            </div>
+            <h3 className="preview-name">{informations?.nom}</h3>
           </div>
           <div className="sections">
             <div className="info">
