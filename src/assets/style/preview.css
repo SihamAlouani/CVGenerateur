@@ -10,6 +10,14 @@
     right: 0;
   }
 }
+.Sep-titel{
+  background-color: aqua;
+  /* width: 10rem; */
+  text-align: center;
+  padding:8px;
+  /* margin-left: 5.5rem; */
+  
+}
 input {
   border: 1px solid gray;
   outline: none;
