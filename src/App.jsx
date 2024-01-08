@@ -55,32 +55,32 @@ function App() {
               />
             </CustomRoute>
             <CustomRoute path="Education" page={page}>
-              <h1>this is Education </h1>
+              <h1> Education </h1>
               <Education
                 educations={educations}
                 setEducations={setEducations}
               />
             </CustomRoute>
             <CustomRoute path="Experiences" page={page}>
-              <h1>Expérience Professionnelle</h1>
+              <h1>Expériences Professionnelles</h1>
               <WorkExperience
                 experiences={experiences}
                 setExperiences={setExperiences}
               ></WorkExperience>
             </CustomRoute>
             <CustomRoute path="Compétances" page={page}>
-              <h1>this is Compétances </h1>
+              <h1>Compétances théchniques</h1>
               <Skills skills={skills} setSkills={setSkills} />
             </CustomRoute>
             <CustomRoute path="Langues" page={page}>
-              <h1>Languages</h1>
+              <h1>Langues</h1>
               <LanguageSection
                 languages={languages}
                 setLanguages={setLanguages}
               />
             </CustomRoute>
             <CustomRoute path="Références" page={page}>
-              <h1>this is Références </h1>
+              <h1>Références </h1>
               <References
                 references={references}
                 setReferences={setReferences}
