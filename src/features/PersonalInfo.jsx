@@ -10,6 +10,7 @@ function PersonalInfo({
   setImage,
   setInformations,
 }) {
+  //commentaire
   const [editingIndex, setEditingIndex] = useState(null)
   const [nameValidationError, setNameValidationError] = useState("")
   const [titreValidationError, setTitreValidationError] = useState("")
