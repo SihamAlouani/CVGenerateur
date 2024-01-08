@@ -132,7 +132,13 @@ export default function Preview({
                     <div className="education-element">
                       <div className="name-date">
                         {" "}
-                        <span>{education.date_de_fin.split("-")[0]}</span>
+                        <span>
+                          {education.date_de_commencement.split("-")[1]}/
+                          {education.date_de_commencement.split("-")[0]}
+                          {" - "}
+                          {education.date_de_fin.split("-")[1]}/
+                          {education.date_de_fin.split("-")[0]}
+                        </span>
                         <span>{education.diplome}</span>
                       </div>
                       <div className="details">

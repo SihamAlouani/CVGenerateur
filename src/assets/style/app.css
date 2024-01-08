@@ -5,6 +5,7 @@
   gap: 1rem;
   overflow-y: scroll;
 }
+
 .app {
   display: grid;
   grid-template-columns: 1fr;
@@ -12,7 +13,9 @@
 .prev {
   box-shadow: 0px 0px 3px gray, 1px 1px 3px gray;
 }
-
+li {
+  list-style: non;
+}
 .action {
   padding: 0.5rem 0.25rem;
   display: flex;
@@ -21,30 +24,25 @@
   border: none;
 }
 .action.delete {
- 
   color: rgb(255, 252, 252);
   background: rgb(155, 1, 1);
-
 }
 
-
-.action-button{
+.action-button {
   font-family: inherit;
   font-size: 17px;
   display: flex;
-  padding-left:0.8em;
-  padding-right:0.8em;
-display: flex;
-gap: 8px;
-border-radius: 7px;
-  align-items: center; 
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  display: flex;
+  gap: 8px;
+  border-radius: 7px;
+  align-items: center;
   border: none;
   overflow: hidden;
   cursor: pointer;
-  
 }
 .action.update {
- 
   color: white;
   background: rgb(1, 135, 1);
 }
@@ -81,4 +79,17 @@ border-radius: 7px;
   color: red;
   background-color: var(--base-red);
   font-size: 0.7rem;
+}
+
+@media screen and (width < 900px) {
+  .content,
+  .app-content {
+    grid-template-columns: 1fr;
+  }
+  .right-side {
+    max-width: 100%;
+  }
+  * {
+    overflow-x: hidden !important;
+  }
 }

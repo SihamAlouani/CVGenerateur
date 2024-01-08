@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {} from "@fortawesome/free-brands-svg-icons"
 import {
-  
- 
-} from "@fortawesome/free-brands-svg-icons"
-import { faDeleteLeft, faEdit, faTrash, faUpRightAndDownLeftFromCenter } from "@fortawesome/free-solid-svg-icons"
+  faDeleteLeft,
+  faEdit,
+  faTrash,
+  faUpRightAndDownLeftFromCenter,
+} from "@fortawesome/free-solid-svg-icons"
 
 function Education({ educations, setEducations }) {
   const [formData, setFormData] = useState({
@@ -175,6 +177,7 @@ function Education({ educations, setEducations }) {
           <label htmlFor="location">
             Ville *{" "}
             <input
+              placeholder="Ville"
               type="text"
               name="location"
               id="location"
@@ -207,7 +210,6 @@ function Education({ educations, setEducations }) {
                         onClick={() => handleEdit(index)}
                       >
                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                        
                         Modifier
                       </button>
                       <button
