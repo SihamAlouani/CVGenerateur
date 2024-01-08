@@ -56,7 +56,7 @@ function Education({ educations, setEducations }) {
       <div>
         <form className="form" onSubmit={handleSubmit}>
           <label>
-            Diplome{" "}
+          Nom diplôme * {" "}
             <input
               type="text"
               name="diplome"
@@ -78,7 +78,7 @@ function Education({ educations, setEducations }) {
             />
           </label> */}
           <label htmlFor="date_de_fin">
-            Date de fin{" "}
+            Date de fin *{" "}
             <input
               type="date"
               name="date_de_fin"
@@ -88,7 +88,7 @@ function Education({ educations, setEducations }) {
             />
           </label>
           <label htmlFor="ecole">
-            Ecole{" "}
+          Nom d'établissement *{" "}
             <input
               type="text"
               name="ecole"
@@ -100,7 +100,7 @@ function Education({ educations, setEducations }) {
             />
           </label>
           <label htmlFor="location">
-            Location{" "}
+            Ville * {" "}
             <input
               type="text"
               name="location"
@@ -113,8 +113,8 @@ function Education({ educations, setEducations }) {
           </label>{" "}
           <button type="submit">
             {editingIndex !== null
-              ? "Modifier information"
-              : "Ajouter information"}
+              ? "Modifier Education"
+              : "Ajouter Eduction"}
           </button>
         </form>
 
