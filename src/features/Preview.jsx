@@ -205,7 +205,7 @@ export default function Preview({
       {print.current && (
         <>
           <ReactToPrint
-            trigger={() => <button className=""> Imprimer Le Cv</button>}
+            trigger={() => <button className="add-button"> Imprimer Le Cv</button>}
             content={() => print.current}
           />
         </>
