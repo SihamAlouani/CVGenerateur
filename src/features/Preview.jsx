@@ -118,7 +118,7 @@ export default function Preview({
           {experiences.length > 0 && (
             <div className="experiences">
               <h4 className="">
-                experiences <hr />
+                Experiences <hr />
               </h4>
               <div className="experiences-container">
                 {experiences.map((WE) => {
