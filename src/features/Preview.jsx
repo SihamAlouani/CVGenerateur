@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef } from "react"
 
 import "../assets/style/preview.css"
 import image from "../assets/Images/cv-removebg-preview.png"
@@ -22,9 +22,10 @@ export default function Preview({
   useEffect(() => {
     console.log(informations)
   })
+  const print = useRef()
   return (
     <div className={`preview-left-side `}>
-      <div className="preview-container">
+      <div ref={print} className="preview-container">
         <section className={`left-side ${color}`}>
           <div className="image">
             <img src={image.previewUrl} alt="" />
@@ -60,9 +61,7 @@ export default function Preview({
 
             {languages.length > 0 && (
               <div>
-                <h4 className="p-4 ">
-                  Langues
-                </h4>
+                <h4 className="p-4 ">Langues</h4>
                 <ul className="langues">
                   {languages.map((lang) => {
                     return (
@@ -83,9 +82,7 @@ export default function Preview({
           )}
           {"" != informations.profile && (
             <div className="profile">
-              <h4 className="">
-                Profile
-              </h4>
+              <h4 className="">Profile</h4>
               <p>{informations.profile}</p>
             </div>
           )}
@@ -93,10 +90,7 @@ export default function Preview({
           {experiences.length > 0 && (
             <div className="experiences">
               <div className="Sep-titel">
-                <h4 className="">
-                  Experiences
-                </h4>
-
+                <h4 className="">Experiences</h4>
               </div>
               <div className="experiences-container">
                 {experiences.map((WE) => {
@@ -120,9 +114,7 @@ export default function Preview({
           {educations.length > 0 && (
             <div className="education">
               <div>
-                <h4 className="Sep-titel">
-                  Educations
-                </h4>
+                <h4 className="Sep-titel">Educations</h4>
               </div>
               <div className="educations-container">
                 {educations.map((education) => {
@@ -146,9 +138,7 @@ export default function Preview({
           {skills.length > 0 && (
             <div className="skills">
               <div className="Sep-titel">
-                <h4 className="">
-                  Compétances
-                </h4>
+                <h4 className="">Compétances</h4>
               </div>
               <div className="skills-container">
                 {skills.map((skill) => {
@@ -161,10 +151,7 @@ export default function Preview({
           {references.length > 0 && (
             <div className="education">
               <div className="Sep-titel">
-                <h4 className="">
-                  Réferences
-                </h4>
-
+                <h4 className="">Réferences</h4>
               </div>
               <div className="ref-container">
                 {references.map((reference) => {
@@ -184,19 +171,18 @@ export default function Preview({
               </div>
             </div>
           )}
-
         </section>
       </div>
       <ColorPallet setColor={setColor} />
-      {print.current && (
-        <>
-          <ReactToPrint
-            trigger={() => <button className="add-button"> Imprimer Le Cv</button>}
-            content={() => print.current}
-          />
-        </>
-      )}
-    </div>
 
+      <>
+        <ReactToPrint
+          trigger={() => (
+            <button className="add-button"> Imprimer Le Cv</button>
+          )}
+          content={() => print.current}
+        />
+      </>
+    </div>
   )
 }

@@ -13,6 +13,9 @@ function WorkExperience({ experiences, setExperiences }) {
   })
   const [editingIndex, setEditingIndex] = useState(null)
 
+
+  
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
