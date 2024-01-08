@@ -45,9 +45,11 @@
 }
 .purple {
   background: var(--cv-purple);
+  color: black !important;
 }
 .dark-blue {
   background: var(--cv-dark-blue);
+  color: black !important;
 }
 .blue {
   background: var(--cv-blue);
