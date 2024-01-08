@@ -16,13 +16,8 @@ input {
 
   font-size: 0.7rem;
   overflow: hidden;
-  box-shadow: 1px 1px 3px gray;
-  width: 12.6cm;
-  margin-inline: auto;
-  height: 17.82cm;
 
-  /* width: calc(21cm - 21cm * 60 / 100);
-   width: calc(29.7cm - 29.7cm *60 / 100); */
+  box-shadow: 1px 1px 3px gray;
 }
 
 .preview-container .right-side {
@@ -207,13 +202,13 @@ input {
     left: 0;
     right: 0;
     font-size: 1rem;
-    width: unset;
-    height: unset;
   }
 }
 @media screen and (width < 900px) {
   .preview-container {
+    background-color: red;
     width: unset;
     height: unset;
+    font-size: 7px;
   }
 }
