@@ -2,77 +2,34 @@ import { useState, useEffect } from "react"
 import "../assets/style/skills.css"
 import CollapseSection from "../components/CollapseSection"
 
-// import image from "../assets/images/add-a.png"
-// import deleteIcon from "../assets/images/trash.svg"
-
 function Skills({ skills, setSkills }) {
-  //   const [inputValue, setInputValue] = useState("")
-  //   const [addedSkills, newSkillAdd] = useState([])
-  //   const [savedSkills, setSavedSkills] = useState([])
-  //   const [confirmationVisible, confirmtionCheck] = useState(false)
-
-  //   const add = () => {
-  //     if (inputValue.length >= 3) {
-  //       const newSkill = { id: Date.now(), skill: inputValue }
-  //       newSkillAdd([...addedSkills, newSkill])
-  //       setInputValue("")
-  //     }
-  //   }
-
-  //   const update = (id) => {
-
-  //   }
-
-  //   const handleInputChange = (event) => {
-  //     const value = event.target.value
-  //     setInputValue(value)
-  //   }
-
-  //   const handleDelete = (index) => {
-  //     const updatedSkills = [...addedSkills]
-  //     updatedSkills.splice(index, 1)
-  //     newSkillAdd(updatedSkills)
-  //   }
-
-  //   const handleSave = () => {
-  //     confirmtionCheck(true)
-  //   }
-
-  //   const confirm = () => {
-  //     setSavedSkills([...savedSkills, ...addedSkills])
-  //     newSkillAdd([])
-  //     confirmtionCheck(false)
-  //   }
-
-  //   const cancelSave = () => {
-  //     confirmtionCheck(false)
-  //   }
-
-  // ----------------------------------------------
-
   const [formData, setFormData] = useState("")
   const [editingIndex, setEditingIndex] = useState(null)
+  const [skillValidationError, setSkillValidationError] = useState("")
 
   const handleSkillChange = (e) => {
     setFormData(e.target.value)
   }
 
-  useEffect(() => {
-    console.log(formData)
-  })
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (editingIndex !== null) {
-      const newSkill = [...skills]
+    const skillValidation = formData.length > 0
+    if (skillValidation) {
+      if (editingIndex !== null) {
+        const newSkill = [...skills]
 
-      newSkill[editingIndex] = formData
+        newSkill[editingIndex] = formData
 
-      setSkills(newSkill)
-      setEditingIndex(null)
+        setSkills(newSkill)
+        setEditingIndex(null)
+      } else {
+        setSkills([...skills, formData])
+      }
+      setFormData("")
+      setSkillValidationError("")
     } else {
-      setSkills([...skills, formData])
+      setSkillValidationError("ce champ est obligatoire")
     }
-    setFormData("")
   }
 
   const handleEdite = (index) => {
@@ -91,13 +48,11 @@ function Skills({ skills, setSkills }) {
     <div>
       <form onSubmit={handleSubmit} className="form">
         <label>
-          Nom de compétence * 
-          <input
-            type="text"
-            value={formData}
-            onChange={handleSkillChange}
-            required
-          />
+          Nom de compétence *
+          <input type="text" value={formData} onChange={handleSkillChange} />
+          {skillValidationError && (
+            <span className="error">{skillValidationError}</span>
+          )}
         </label>
 
         <button type="submit">
@@ -134,5 +89,3 @@ function Skills({ skills, setSkills }) {
 }
 
 export default Skills
-
-

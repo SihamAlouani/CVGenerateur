@@ -14,22 +14,53 @@ const LanguageSection = ({ languages, setLanguages }) => {
 
     setFormData({ ...formData, [name]: value })
   }
-
+  const [LangueValidationError, setLangueValidationError] = useState("")
+  const [LevelValidationError , setLevelValidationError]=useState("")
+  
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (editingIndex !== null) {
-      const newLanguage = [...languages]
-      newLanguage[editingIndex] = formData
-
-      setLanguages(newLanguage)
-      setEditingIndex(null)
-    } else {
-      setLanguages([...languages, formData])
+    let langueValidation = formData.langue.length > 0;
+    let levelValidation = formData.level.length >0;
+    if(langueValidation && levelValidation)
+    {
+      if (editingIndex !== null) {
+        const newLanguage = [...languages]
+        newLanguage[editingIndex] = formData
+  
+        setLanguages(newLanguage)
+        setEditingIndex(null)
+      } else {
+        setLanguages([...languages, formData])
+      }
+      setFormData({
+        langue: "",
+        level: "",
+      })
+      setLangueValidationError("")
+      setLevelValidationError("")
     }
-    setFormData({
-      langue: "",
-      level: "",
-    })
+    else{
+      if(!langueValidation)
+      {
+        setLangueValidationError("ce champ est obligatoire")
+        
+      }
+      else{
+        setLangueValidationError("")
+
+
+      }
+      if(!levelValidation)
+      {
+        setLevelValidationError("ce champ est obligatoire")
+
+      }
+      else{
+        setLevelValidationError("")
+      }
+    
+    }
+   
   }
 
   const handleEdite = (index) => {
@@ -56,8 +87,11 @@ const LanguageSection = ({ languages, setLanguages }) => {
             name="langue"
             value={formData.langue}
             onChange={handleLanguageChange}
-            required
+            // required
           />
+          {LangueValidationError.length > 0 && (
+            <span className="error">{LangueValidationError}</span>
+          )}
         </label>
 
         <label>
@@ -67,7 +101,7 @@ const LanguageSection = ({ languages, setLanguages }) => {
             onChange={handleLanguageChange}
             id=""
             value={formData.level}
-            required
+            // required
           >
             <option></option>
             {levels.map((level, index) => {
@@ -78,6 +112,10 @@ const LanguageSection = ({ languages, setLanguages }) => {
               )
             })}
           </select>
+          
+          {LevelValidationError.length >0 && (
+              <span className="error">{LevelValidationError}</span>
+            )}
         </label>
 
         <button type="submit">
