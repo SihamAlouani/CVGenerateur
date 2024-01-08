@@ -46,9 +46,13 @@ function Education({ educations, setEducations }) {
     let dateDeFintValidation = formData.date_de_fin.length > 0
     let ecoleValidation = formData.ecole.length > 0
     let villeValidation = formData.location.length > 0
-    let dateDeCommencement = new Date(formData.date_de_commencement);
-    let dateDeFin = new Date(formData.date_de_fin);
-    let ComparisondateValidation = dateDeCommencement < dateDeFin;
+    let dateDeCommencement = dateDeCommencementValidation ? new Date(formData.date_de_commencement) : null;
+    let dateDeFin = dateDeFintValidation ? new Date(formData.date_de_fin) : null;
+  
+   let ComparisondateValidation =
+  dateDeCommencement === null || (dateDeFin === null || dateDeCommencement < dateDeFin);
+
+  
     if (!ComparisondateValidation) {
       setDateComparisonError("La date de fin doit être après la date de commencement");
     } else {
@@ -56,11 +60,11 @@ function Education({ educations, setEducations }) {
     }
     if (
       diplomeValidation &&
-      dateDeCommencementValidation &&
-      dateDeFintValidation &&
+      // dateDeCommencementValidation &&
+      // dateDeFintValidation &&
       ecoleValidation &&
       villeValidation &&
-      ComparisondateValidation
+     ComparisondateValidation
     ) {
       if (editingIndex !== null) {
         const newPersonalInf = [...educations]
@@ -81,7 +85,6 @@ function Education({ educations, setEducations }) {
       setDateDeCommencementValidationError("")
       setdateDeFinValidationError("")
       setDateComparisonError("");
-
       setEcoleValidationError("")
       setVilleValidationError("")
     } else {
