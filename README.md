@@ -1,6 +1,7 @@
 # Documentation pour le générateur de CV en ligne
 
-![Logo]('jobintech.png')
+![Logo](jobintech.png)
+
 
 
 ## Présentation
