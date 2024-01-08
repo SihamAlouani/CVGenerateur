@@ -63,7 +63,7 @@ function Education({ educations, setEducations }) {
               id="diplome"
               value={formData.diplome}
               onChange={handleChange}
-              placeholder="Licence en Ingénierie "
+              placeholder="Licence en Ingénierie... "
               required
             />
           </label>
@@ -95,7 +95,7 @@ function Education({ educations, setEducations }) {
               id="ecole"
               value={formData.ecole}
               onChange={handleChange}
-              placeholder="Université de  "
+              placeholder="Université Internationale de Rabat  "
               required
             />
           </label>
@@ -107,7 +107,7 @@ function Education({ educations, setEducations }) {
               id="location"
               value={formData.location}
               onChange={handleChange}
-              placeholder="Paris "
+              
               required
             />
           </label>{" "}
@@ -124,10 +124,10 @@ function Education({ educations, setEducations }) {
               <CollapseSection title={perI.diplome}>
                 <div className="content">
                   <div className="d-grid">
-                    <span>Diplome:{perI.diplome}</span>
-                    <span>date: de Fin{perI.date_de_fin}</span>
-                    <span>Ecole:{perI.ecole}</span>
-                    <span>Location:{perI.location}</span>
+                    <span>Nom diplôme :{perI.diplome}</span>
+                    <span>date de Fin :{perI.date_de_fin}</span>
+                    <span>Nom d'établissement :{perI.ecole}</span>
+                    <span>Ville :{perI.location}</span>
                     <div className="actions">
                       <button
                         className="action update"

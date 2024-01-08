@@ -91,7 +91,7 @@ function Skills({ skills, setSkills }) {
     <div>
       <form onSubmit={handleSubmit} className="form">
         <label>
-          Skill:
+          Nom de compétence * 
           <input
             type="text"
             value={formData}
@@ -102,7 +102,7 @@ function Skills({ skills, setSkills }) {
 
         <button type="submit">
           {editingIndex !== null
-            ? "modifier la compétance"
+            ? "Modifier la compétance"
             : "Ajouter une compétance"}
         </button>
       </form>
@@ -116,7 +116,7 @@ function Skills({ skills, setSkills }) {
                   className="action delete "
                   onClick={() => handleDelete(index)}
                 >
-                  Delete
+                  Supprimer
                 </button>
                 <button
                   className="action update "
