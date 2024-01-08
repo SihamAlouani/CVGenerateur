@@ -61,7 +61,7 @@ function PersonalInfo({
   return (
     <>
       <div>
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <label HtmlFor="image" className="image-label">
             {" "}
             <FontAwesomeIcon icon={faUpload} className="svg" />
@@ -77,7 +77,7 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Nom Complet
+            Nom Complet *
             <input
               type="text"
               name="nom"
@@ -88,7 +88,7 @@ function PersonalInfo({
             />{" "}
           </label>
           <label>
-            Titre
+            Titre *
             <input
               type="text"
               name="titre"
@@ -99,7 +99,7 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Profil
+            Profile *
             <textarea
               name="profile"
               rows="4"
@@ -111,7 +111,7 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Email
+            Email *
             <input
               type="email"
               name="email"
@@ -122,7 +122,7 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Adresse
+            Adresse *
             <input
               type="text"
               name="adresse"
@@ -133,18 +133,18 @@ function PersonalInfo({
             />
           </label>
           <label>
-            Téléphone
+            Téléphone *
             <input
               type="tel"
               name="phone"
-              placeholder="+33612345678"
+              placeholder="+20 955......"
               value={formData.phone}
               onChange={handleChange}
               required
             />
           </label>
           <label>
-            Linkden
+            Linkedin *
             <input
               type="text"
               name="linkden"

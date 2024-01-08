@@ -19,8 +19,8 @@
   
 }
 input {
-  border: 1px solid gray;
-  outline: none;
+  /* border: 1px solid gray; */
+  /* outline: none; */
 }
 
 .preview-container {
@@ -39,7 +39,7 @@ input {
   gap: 1rem;
 }
 .preview-container .left-side {
-  color: white;
+  /* color: white; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

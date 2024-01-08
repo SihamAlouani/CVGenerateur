@@ -57,62 +57,65 @@ function References({ references, setReferences }) {
     <>
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="name">
-          nom
+          Nom de chef *
           <input
             type="text"
             onChange={handleChange}
             value={formData.name}
             name="name"
             id="name"
-            placeholder="nom"
+            required
           />
         </label>
 
         <label htmlFor="tel">
-          Telephone
+        Téléphone de chef*
           <input
             type="tel"
             onChange={handleChange}
             value={formData.tele}
             name="tele"
             id="tel"
-            placeholder="Telephone"
+            placeholder="+20 955......"
+            required
           />
         </label>
 
         <label htmlFor="Email">
-          Email
+          Email de chef *
           <input
             type="email"
             onChange={handleChange}
             value={formData.email}
             name="email"
             id="Email"
-            placeholder="Email"
+            placeholder="exemple@gmail.com"
+            required
           />
         </label>
 
         <label htmlFor="entreprise">
-          Entreprise
+          Nom d'entreprise *
           <input
             type="text"
             onChange={handleChange}
             id="entreprise"
             value={formData.entreprise}
             name="entreprise"
-            placeholder="Entreprise"
+            required
           />
         </label>
 
         <label htmlFor="position">
-          Position*
+          Poste de chef *
           <input
             type="text"
             onChange={handleChange}
             name="position"
             value={formData.position}
             id="position"
-            placeholder="Position"
+            placeholder="Ex: Chef de projet "
+            required
           />
         </label>
 
@@ -125,9 +128,9 @@ function References({ references, setReferences }) {
           ({ name, tele, email, entreprise, position }, index) => (
             <CollapseSection index={index} title={name}>
               <p>Entreprise : {entreprise}</p>
-              <p>Poste : {position}</p>
-              <p>Email: {email}</p>
-              <p>Telephone: {tele}</p>
+              <p>Poste de chef : {position}</p>
+              <p>Email de chef : {email}</p>
+              <p>Téléphone: {tele}</p>
               <div className="actions">
                 <button
                   className="action update"
