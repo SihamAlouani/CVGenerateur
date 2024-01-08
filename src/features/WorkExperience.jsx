@@ -94,7 +94,7 @@ function WorkExperience({ experiences, setExperiences }) {
               onChange={handleChange}
               required
             >
-              <option>----</option>
+              <option></option>
               <option>Hybride</option>
               <option>Temps plein</option>
               <option>A distance</option>

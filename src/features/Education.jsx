@@ -17,6 +17,15 @@ function Education({ educations, setEducations }) {
   })
   const [editingIndex, setEditingIndex] = useState(null)
 
+  const [diplomeValidationError, setDiplomeValidationError] = useState("")
+  const [
+    dateDeCommencementValidationError,
+    setDateDeCommencementValidationError,
+  ] = useState("")
+  const [dateDeFinValidationError, setdateDeFinValidationError] = useState("")
+  const [EcoleValidationError, setEcoleValidationError] = useState("")
+  const [VilleValidationError, setVilleValidationError] = useState("")
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -27,22 +36,68 @@ function Education({ educations, setEducations }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (editingIndex !== null) {
-      const newPersonalInf = [...educations]
-      newPersonalInf[editingIndex] = formData
-      setEducations(newPersonalInf)
-      setEditingIndex(null)
-    } else {
-      setEducations([...educations, formData])
-    }
 
-    setFormData({
-      diplome: "",
-      date_de_commencement: "",
-      date_de_fin: "",
-      ecole: "",
-      location: "",
-    })
+    let diplomeValidation = formData.diplome.length > 0
+    let dateDeCommencementValidation = formData.date_de_commencement.length > 0
+    let dateDeFintValidation = formData.date_de_fin.length > 0
+    let ecoleValidation = formData.ecole.length > 0
+    let villeValidation = formData.location.length > 0
+    if (
+      diplomeValidation &&
+      dateDeCommencementValidation &&
+      dateDeFintValidation &&
+      ecoleValidation &&
+      villeValidation
+    ) {
+      if (editingIndex !== null) {
+        const newPersonalInf = [...educations]
+        newPersonalInf[editingIndex] = formData
+        setEducations(newPersonalInf)
+        setEditingIndex(null)
+      } else {
+        setEducations([...educations, formData])
+      }
+      setFormData({
+        diplome: "",
+        date_de_commencement: "",
+        date_de_fin: "",
+        ecole: "",
+        location: "",
+      })
+      setDiplomeValidationError("")
+      setDateDeCommencementValidationError("")
+      setdateDeFinValidationError("")
+      setEcoleValidationError("")
+      setVilleValidationError("")
+    } else {
+      if (!diplomeValidation) {
+        setDiplomeValidationError("ce champ est obligatoire")
+      } else {
+        setDiplomeValidationError("")
+      }
+
+      if (!dateDeCommencementValidation) {
+        setDateDeCommencementValidationError("ce champ est obligatoire")
+      } else {
+        setDateDeCommencementValidationError("")
+      }
+
+      if (!dateDeFintValidation) {
+        setdateDeFinValidationError("ce champ est obligatoire")
+      } else {
+        setdateDeFinValidationError("")
+      }
+      if (!ecoleValidation) {
+        setEcoleValidationError("ce champ est obligatoire")
+      } else {
+        setEcoleValidationError("")
+      }
+      if (!villeValidation) {
+        setVilleValidationError("ce champ est obligatoire")
+      } else {
+        setVilleValidationError("")
+      }
+    }
   }
 
   const handleEdit = (index) => {
@@ -62,7 +117,7 @@ function Education({ educations, setEducations }) {
       <div>
         <form className="form" onSubmit={handleSubmit}>
           <label>
-          Nom diplôme * {" "}
+            Nom diplôme *{" "}
             <input
               type="text"
               name="diplome"
@@ -70,8 +125,11 @@ function Education({ educations, setEducations }) {
               value={formData.diplome}
               onChange={handleChange}
               placeholder="Licence en Ingénierie... "
-              required
+              // required
             />
+            {diplomeValidationError.length > 0 && (
+              <span className="error">{diplomeValidationError}</span>
+            )}
           </label>
           <label htmlFor="date_de_commencement">
             Date de commencement *{" "}
@@ -80,9 +138,12 @@ function Education({ educations, setEducations }) {
               name="date_de_commencement"
               value={formData.date_de_commencement}
               onChange={handleChange}
-              required
+              // required
             />
-          </label> 
+            {dateDeCommencementValidationError.length > 0 && (
+              <span className="error">{dateDeCommencementValidationError}</span>
+            )}
+          </label>
           <label htmlFor="date_de_fin">
             Date de fin *{" "}
             <input
@@ -90,11 +151,14 @@ function Education({ educations, setEducations }) {
               name="date_de_fin"
               value={formData.date_de_fin}
               onChange={handleChange}
-              required
+              // required
             />
+            {dateDeFinValidationError.length > 0 && (
+              <span className="error">{dateDeFinValidationError}</span>
+            )}
           </label>
           <label htmlFor="ecole">
-          Nom d'établissement *{" "}
+            Nom d'établissement *{" "}
             <input
               type="text"
               name="ecole"
@@ -102,25 +166,28 @@ function Education({ educations, setEducations }) {
               value={formData.ecole}
               onChange={handleChange}
               placeholder="Université Internationale de Rabat  "
-              required
+              // required
             />
+            {EcoleValidationError.length > 0 && (
+              <span className="error">{EcoleValidationError}</span>
+            )}
           </label>
           <label htmlFor="location">
-            Ville * {" "}
+            Ville *{" "}
             <input
               type="text"
               name="location"
               id="location"
               value={formData.location}
               onChange={handleChange}
-              
-              required
+              // required
             />
+            {VilleValidationError.length > 0 && (
+              <span className="error">{VilleValidationError}</span>
+            )}
           </label>{" "}
           <button type="submit">
-            {editingIndex !== null
-              ? "Modifier Education"
-              : "Ajouter Eduction"}
+            {editingIndex !== null ? "Modifier Education" : "Ajouter Eduction"}
           </button>
         </form>
 
