@@ -41,7 +41,8 @@ function WorkExperience({ experiences, setExperiences }) {
     const dateendValidation = formData.dateend.length > 0
     let dateDeCommencement = new Date(formData.datestart);
     let dateDeFin = new Date(formData.dateend);
-    let ComparisondateValidation = dateDeCommencement < dateDeFin;
+    let ComparisondateValidation = dateDeCommencement <= dateDeFin;
+    
     if (!ComparisondateValidation) {
       setDateComparisonError("La date de fin doit être après la date de commencement");
     } else {
