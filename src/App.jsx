@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import Sidebar from "./components/Sidebar"
 import "./assets/style/sidebar.css"
 import "./assets/style/form.css"
-
 import Footer from "./components/Footer"
 import LanguageSection from "./features/LanguageSection"
 import "./assets/style/app.css"

@@ -93,7 +93,7 @@ export default function Preview({
 
           {experiences.length > 0 && (
             <div className="experiences">
-              <div className="Sep-titel">
+              <div className={`Sep-titel ${color}`}>
                 <h4 className="">
                   Experiences
                 </h4>
@@ -121,7 +121,7 @@ export default function Preview({
           {educations.length > 0 && (
             <div className="education">
               <div>
-                <h4 className="Sep-titel">
+                <h4 className={`Sep-titel ${color}`}>
                   Educations
                 </h4>
               </div>
@@ -146,12 +146,12 @@ export default function Preview({
 
           {skills.length > 0 && (
             <div className="skills">
-              <div className="Sep-titel">
+              <div className={`Sep-titel ${color}`}>
                 <h4 className="">
                   Compétances
                 </h4>
               </div>
-              <div className="skills-container">
+              <div className={`Sep-titel ${color}`}>
                 {skills.map((skill) => {
                   return <div>{skill} |</div>
                 })}
@@ -161,7 +161,7 @@ export default function Preview({
 
           {references.length > 0 && (
             <div className="education">
-              <div className="Sep-titel">
+              <div className={`Sep-titel ${color}`}>
                 <h4 className="">
                   Réferences
                 </h4>
