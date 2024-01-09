@@ -21,7 +21,7 @@ function WorkExperience({ experiences, setExperiences }) {
     useState("")
   const [datestartValidationError, setDatestartValidationError] = useState("")
   const [dateendValidationError, setdateendValidationError] = useState("")
-  const [dateComparisonError, setDateComparisonError] = useState("");
+  const [dateComparisonError, setDateComparisonError] = useState("")
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -38,16 +38,23 @@ function WorkExperience({ experiences, setExperiences }) {
     const jobtypeValidation = formData.jobname.length > 0
     const descriptionValidation = formData.description.length > 0
     const datestartValidation = formData.datestart.length > 0
-const dateendValidation = formData.dateend.length > 0
-let dateDeCommencement = datestartValidation ? new Date(formData.datestart) : null;
-let dateDeFin = dateendValidation ? new Date(formData.dateend) : null;
-let ComparisondateValidation = dateDeCommencement === null || (dateDeFin === null || dateDeCommencement <= dateDeFin);
+    const dateendValidation = formData.dateend.length > 0
+    let dateDeCommencement = datestartValidation
+      ? new Date(formData.datestart)
+      : null
+    let dateDeFin = dateendValidation ? new Date(formData.dateend) : null
+    let ComparisondateValidation =
+      dateDeCommencement === null ||
+      dateDeFin === null ||
+      dateDeCommencement <= dateDeFin
 
-if (!ComparisondateValidation) {
-  setDateComparisonError("La date de fin doit être après la date de commencement");
-} else {
-  setDateComparisonError("");
-}
+    if (!ComparisondateValidation) {
+      setDateComparisonError(
+        "La date de fin doit être après la date de commencement"
+      )
+    } else {
+      setDateComparisonError("")
+    }
 
     if (
       nameValidation &&
@@ -76,8 +83,8 @@ if (!ComparisondateValidation) {
       })
       setNameValidationError("")
       setJobnameValidationError("")
-      setDateComparisonError("");
-
+      setDateComparisonError("")
+      setDescriptionValidationError("")
       setjobtypeValidationError("")
       setDatestartValidationError("")
       setdateendValidationError("")
@@ -223,7 +230,7 @@ if (!ComparisondateValidation) {
               value={formData.dateend}
               onChange={handleChange}
             />
-             {dateComparisonError.length > 0 && (
+            {dateComparisonError.length > 0 && (
               <span className="error">{dateComparisonError}</span>
             )}
             {dateendValidationError && (

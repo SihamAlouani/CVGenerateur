@@ -13,11 +13,11 @@ import SideBarItem from "./SideBarItem"
 export default function Sidebar({ setPage, page }) {
   const sidebarItems = [
     {
-      title: "Information Personelle",
+      title: "Information Personelles",
       icon: faPerson,
     },
     {
-      title: "Education",
+      title: "Educations",
       icon: faUserGraduate,
     },
     { title: "Experiences", icon: faSuitcase },

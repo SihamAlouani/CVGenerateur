@@ -201,12 +201,13 @@ input {
     bottom: 0;
     left: 0;
     right: 0;
+  }
+  .experiences-container {
     font-size: 1rem;
   }
 }
 @media screen and (width < 900px) {
   .preview-container {
-    background-color: red;
     width: unset;
     height: unset;
     font-size: 7px;

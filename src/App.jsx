@@ -33,7 +33,7 @@ function App() {
     linkden: "",
   })
   const [image, setImage] = useState({ file: "", previewUrl: "" })
-  const [page, setPage] = useState("Information Personelle")
+  const [page, setPage] = useState("Information Personelles")
 
   return (
     <div className="app">
@@ -42,7 +42,7 @@ function App() {
         <Sidebar setPage={setPage} page={page} />
         <div className="content">
           <div className="right-side">
-            <CustomRoute path="Information Personelle" page={page}>
+            <CustomRoute path="Information Personelles" page={page}>
               <h1>Information personelles</h1>
 
               <PersonalInfo
@@ -54,7 +54,7 @@ function App() {
                 setImage={setImage}
               />
             </CustomRoute>
-            <CustomRoute path="Education" page={page}>
+            <CustomRoute path="Educations" page={page}>
               <h1> Education </h1>
               <Education
                 educations={educations}
