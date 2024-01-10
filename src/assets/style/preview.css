@@ -1,3 +1,6 @@
+:root{
+  --size:0.9;
+}
 @page {
   size: "a4";
 }
@@ -29,8 +32,8 @@
 
   font-size: 0.6rem;
   overflow: hidden;
-  width: calc(21cm * 0.75);
-  height: calc(29.7cm * 0.75);
+  width: calc(21cm * var(--size));
+  height: calc(29.7cm * var(--size));
   margin: auto;
   box-shadow: 1px 1px 3px gray;
   /* width: 21cm;
@@ -210,9 +213,12 @@
   color: white;
   width: 100%;
   /* border-radius: 0.5rem; */
-  padding: 1rem 1.5rem;
+  padding: 1.1rem 1.75rem;
   border: 1px solid lightgray;
   display: inline-block;
+  width: max-content;
+  margin-inline: auto;
+  font-size:1.15rem ;
 }
 
 @page {
@@ -233,11 +239,14 @@
 @media screen and (width < 900px) {
   .preview-container {
     font-size: 7px;
-    width: calc(21cm * 0.45);
-    height: calc(29.7cm * 0.45);
+    width: calc(21cm * 0.5);
+    height: calc(29.7cm * 0.5);
   }
   .app {
     padding: 0.2rem;
+  }
+  .add-button{
+    font-size: 1rem;
   }
 }
 
