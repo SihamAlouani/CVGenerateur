@@ -77,7 +77,7 @@ a {
 
 .sidebar .navigation-bar .navigation-item .navigation-item-icon {
   background: var(--secondary-light);
-  color: var(gray);
+
   padding: 0.5rem;
   display: flex;
   align-items: center;
@@ -100,4 +100,55 @@ a {
 }
 .route[data-visible="true"] {
   display: unset;
+}
+
+@media screen and (width < 900px) {
+  .logo-image {
+    display: none !important;
+  }
+  .navigation-bar {
+    display: flex !important;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  .navigation-item-name {
+    display: none !important;
+  }
+  .sidebar {
+    min-height: max-content;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: unset;
+    z-index: 1000000;
+  }
+  .app {
+    margin-bottom: 4rem;
+  }
+  footer {
+    display: none !important;
+  }
+
+  .navigation-item.true .navigation-item-icon {
+    background: white !important;
+    color: var(--primary);
+    /* border-radius: 0.5rem; */
+  }
+  .navigation-item-icon {
+  }
+  .navigation-item {
+    padding: 0 !important;
+    position: relative !important;
+    overflow: hidden;
+  }
+  .content {
+    padding: 1rem 0 !important;
+  }
+  ::-webkit-scrollbar {
+    width: 3px !important;
+  }
 }

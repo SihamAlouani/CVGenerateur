@@ -164,7 +164,11 @@ export default function Preview({
               </div>
               <div className={`Sep-titel ${color}`}>
                 {skills.map((skill) => {
-                  return <div>{skill} |</div>
+                  return (
+                    <div>
+                      {skill} <span className="bold"> - </span>
+                    </div>
+                  )
                 })}
               </div>
             </div>
