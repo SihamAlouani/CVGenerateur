@@ -40,8 +40,7 @@
 input::placeholder {
   color: lightgray;
 }
-input {
-}
+
 .form button {
   background: var(--primary);
   color: white;
@@ -82,8 +81,10 @@ input[type="file"] {
   flex-direction: row !important;
   justify-content: flex-start !important;
   align-items: center;
-
   padding: 0 !important;
+  width: max-content !important;
+  border: 1px solid lightgray;
+  cursor: pointer;
 }
 .image-label span {
   font-size: 0.9rem;

@@ -131,7 +131,7 @@ function References({ references, setReferences }) {
         </label>
 
         <label htmlFor="tel">
-          Téléphone de chef*
+          Téléphone*
           <input
             type="tel"
             onChange={handleChangeNumber}
@@ -146,7 +146,7 @@ function References({ references, setReferences }) {
         </label>
 
         <label htmlFor="Email">
-          Email de chef *
+          Email*
           <input
             type="email"
             onChange={handleChange}
@@ -199,8 +199,8 @@ function References({ references, setReferences }) {
             <CollapseSection index={index} title={name}>
               <div className="ref-display">
                 <p>Entreprise : {entreprise}</p>
-                <p>Poste de chef : {position}</p>
-                <p>Email de chef : {email}</p>
+                <p>Poste : {position}</p>
+                <p>Email : {email}</p>
                 <p>Téléphone: {tele}</p>
               </div>
               <div className="actions">
