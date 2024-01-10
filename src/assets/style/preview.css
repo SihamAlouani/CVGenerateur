@@ -16,8 +16,8 @@ input {
 
   font-size: 0.6rem;
   overflow: hidden;
-  width: calc(21cm * 0.65);
-  height: calc(29.7cm * 0.65);
+  width: calc(21cm * 0.75);
+  height: calc(29.7cm * 0.75);
   margin: auto;
   box-shadow: 1px 1px 3px gray;
   /* width: 21cm;
@@ -219,8 +219,13 @@ input {
 }
 @media screen and (width < 900px) {
   .preview-container {
-    width: unset;
-    height: unset;
     font-size: 7px;
+    width: calc(21cm * 0.45);
+    height: calc(29.7cm * 0.45);
+  }
+  .app {
+    padding: 0.2rem;
   }
 }
+
+
