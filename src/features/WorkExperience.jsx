@@ -22,6 +22,9 @@ function WorkExperience({ experiences, setExperiences }) {
   const [datestartValidationError, setDatestartValidationError] = useState("")
   const [dateendValidationError, setdateendValidationError] = useState("")
   const [dateComparisonError, setDateComparisonError] = useState("")
+
+
+  
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
