@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef } from "react"
 
 import "../assets/style/preview.css"
 import image from "../assets/Images/cv-removebg-preview.png"
@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faHome, faPhone } from "@fortawesome/free-solid-svg-icons"
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import ReactToPrint from "react-to-print"
-import { PDFDownloadLink, Page, View, Document } from "@react-pdf/renderer"
 export default function Preview({
   references,
   languages,
@@ -27,8 +26,18 @@ export default function Preview({
     <div className={`preview-left-side `}>
       <div ref={print} className="preview-container">
         <section className={`left-side ${color}`}>
-          <div className="image">
-            <img src={image.previewUrl} alt="" />
+          <div className="image-name">
+            <div className="image">
+              <img
+                src={
+                  image.previewUrl
+                    ? image.previewUrl
+                    : "https://d29fhpw069ctt2.cloudfront.net/icon/image/49067/preview.svg"
+                }
+                alt=""
+              />
+            </div>
+            <h3 className="preview-name">{informations?.nom}</h3>
           </div>
           <div className="sections">
             <div className="info">
@@ -61,9 +70,7 @@ export default function Preview({
 
             {languages.length > 0 && (
               <div>
-                <h4 className="p-4 ">
-                  Langues
-                </h4>
+                <h4 className="p-4">Langues</h4>
                 <ul className="langues">
                   {languages.map((lang) => {
                     return (
@@ -83,17 +90,15 @@ export default function Preview({
             <h1 className="titre">{informations.titre}</h1>
           )}
           {"" != informations.profile && (
-            <div className="profile">
-              <h4 className="">
-                Profile
-              </h4>
+            <div>
+              <h4 className={`Sep-titel ${color}`}>Profile</h4>
               <p>{informations.profile}</p>
             </div>
           )}
 
           {experiences.length > 0 && (
             <div className="experiences">
-              <div className={`Sep-titel ${color}`}>
+              <div className="Sep-titel">
                 <h4 className="">
                   Experiences
                 </h4>
@@ -121,7 +126,7 @@ export default function Preview({
           {educations.length > 0 && (
             <div className="education">
               <div>
-                <h4 className={`Sep-titel ${color}`}>
+                <h4 className="Sep-titel">
                   Educations
                 </h4>
               </div>
@@ -131,7 +136,13 @@ export default function Preview({
                     <div className="education-element">
                       <div className="name-date">
                         {" "}
-                        <span>{education.date_de_fin.split("-")[0]}</span>
+                        <span>
+                          {education.date_de_commencement.split("-")[1]}/
+                          {education.date_de_commencement.split("-")[0]}
+                          {" - "}
+                          {education.date_de_fin.split("-")[1]}/
+                          {education.date_de_fin.split("-")[0]}
+                        </span>
                         <span>{education.diplome}</span>
                       </div>
                       <div className="details">
@@ -146,7 +157,7 @@ export default function Preview({
 
           {skills.length > 0 && (
             <div className="skills">
-              <div className={`Sep-titel ${color}`}>
+              <div className="Sep-titel">
                 <h4 className="">
                   Compétances
                 </h4>
@@ -161,7 +172,7 @@ export default function Preview({
 
           {references.length > 0 && (
             <div className="education">
-              <div className={`Sep-titel ${color}`}>
+              <div className="Sep-titel">
                 <h4 className="">
                   Réferences
                 </h4>
@@ -185,19 +196,19 @@ export default function Preview({
               </div>
             </div>
           )}
-
         </section>
       </div>
       <ColorPallet setColor={setColor} />
-      {(
+      {
         <>
           <ReactToPrint
-            trigger={() => <button className="add-button"> Imprimer Le Cv</button>}
+            trigger={() => (
+              <button className="add-button"> Imprimer Le Cv</button>
+            )}
             content={() => print.current}
           />
         </>
-      )}
+      }
     </div>
-
   )
 }

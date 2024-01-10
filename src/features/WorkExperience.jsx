@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import CollapseSection from "../components/CollapseSection"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 //import "../assets/style/WorkExperience.css";
 
 function WorkExperience({ experiences, setExperiences }) {
@@ -12,7 +14,14 @@ function WorkExperience({ experiences, setExperiences }) {
     dateend: "",
   })
   const [editingIndex, setEditingIndex] = useState(null)
-
+  const [nameValidationError, setNameValidationError] = useState("")
+  const [jobnameValidationError, setJobnameValidationError] = useState("")
+  const [jobtypeValidationError, setjobtypeValidationError] = useState("")
+  const [descriptionValidationError, setDescriptionValidationError] =
+    useState("")
+  const [datestartValidationError, setDatestartValidationError] = useState("")
+  const [dateendValidationError, setdateendValidationError] = useState("")
+  const [dateComparisonError, setDateComparisonError] = useState("")
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -23,23 +32,98 @@ function WorkExperience({ experiences, setExperiences }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (editingIndex !== null) {
-      const newExperiences = [...experiences]
-      newExperiences[editingIndex] = formData
-      setExperiences(newExperiences)
-      setEditingIndex(null)
+
+    const nameValidation = formData.name.length > 0
+    const jobaneValidation = formData.jobname.length > 0
+    const jobtypeValidation = formData.jobname.length > 0
+    const descriptionValidation = formData.description.length > 0
+    const datestartValidation = formData.datestart.length > 0
+    const dateendValidation = formData.dateend.length > 0
+    let dateDeCommencement = datestartValidation
+      ? new Date(formData.datestart)
+      : null
+    let dateDeFin = dateendValidation ? new Date(formData.dateend) : null
+    let ComparisondateValidation =
+      dateDeCommencement === null ||
+      dateDeFin === null ||
+      dateDeCommencement <= dateDeFin
+
+    if (!ComparisondateValidation) {
+      setDateComparisonError(
+        "La date de fin doit être après la date de commencement"
+      )
     } else {
-      setExperiences([...experiences, formData])
+      setDateComparisonError("")
     }
 
-    setFormData({
-      name: "",
-      jobname: "",
-      jobtype: "",
-      description: "",
-      datestart: "",
-      dateend: "",
-    })
+    if (
+      nameValidation &&
+      jobaneValidation &&
+      jobtypeValidation &&
+      descriptionValidation &&
+      dateendValidation &&
+      datestartValidation &&
+      ComparisondateValidation
+    ) {
+      if (editingIndex !== null) {
+        const newExperiences = [...experiences]
+        newExperiences[editingIndex] = formData
+        setExperiences(newExperiences)
+        setEditingIndex(null)
+      } else {
+        setExperiences([...experiences, formData])
+      }
+      setFormData({
+        name: "",
+        jobname: "",
+        jobtype: "",
+        description: "",
+        datestart: "",
+        dateend: "",
+      })
+      setNameValidationError("")
+      setJobnameValidationError("")
+      setDateComparisonError("")
+      setDescriptionValidationError("")
+      setjobtypeValidationError("")
+      setDatestartValidationError("")
+      setdateendValidationError("")
+
+      setDatestartValidationError("")
+    } else {
+      if (!nameValidation) {
+        setNameValidationError("ce champ est obligatoire")
+      } else {
+        setNameValidationError("")
+      }
+
+      if (!jobaneValidation) {
+        setJobnameValidationError("ce champ est obligatoire")
+      } else {
+        setJobnameValidationError("")
+      }
+
+      if (!jobtypeValidation) {
+        setjobtypeValidationError("ce champ est obligatoire")
+      } else {
+        setjobtypeValidationError("")
+      }
+      if (!descriptionValidation) {
+        setDescriptionValidationError("ce champ est obligatoire")
+      } else {
+        setDatestartValidationError("")
+      }
+      if (!datestartValidation) {
+        setDatestartValidationError("ce champ est obligatoire")
+      } else {
+        setDatestartValidationError("")
+      }
+      if (!datestartValidation) {
+        setdateendValidationError("ce champ est obligatoire")
+      } else {
+        setdateendValidationError("")
+      }
+    }
   }
 
   const handleEdit = (index) => {
@@ -67,8 +151,10 @@ function WorkExperience({ experiences, setExperiences }) {
               value={formData.name}
               onChange={handleChange}
               placeholder="Entrer le nom de l'entreprise "
-              required
             />
+            {nameValidationError && (
+              <span className="error">{nameValidationError}</span>
+            )}
           </label>
 
           <label htmlFor="jobname">
@@ -80,8 +166,10 @@ function WorkExperience({ experiences, setExperiences }) {
               value={formData.jobname}
               onChange={handleChange}
               placeholder="Entrer l'intitule de votre post "
-              required
             />
+            {jobnameValidationError && (
+              <span className="error">{jobnameValidationError}</span>
+            )}
           </label>
 
           <label htmlFor="jobtype">
@@ -92,13 +180,15 @@ function WorkExperience({ experiences, setExperiences }) {
               id="jobtype"
               value={formData.jobtype}
               onChange={handleChange}
-              required
             >
               <option></option>
               <option>Hybride</option>
               <option>Temps plein</option>
               <option>A distance</option>
             </select>
+            {jobtypeValidationError && (
+              <span className="error">{jobtypeValidationError}</span>
+            )}
           </label>
 
           <label htmlFor="description">
@@ -110,8 +200,10 @@ function WorkExperience({ experiences, setExperiences }) {
               rows={5}
               value={formData.description}
               onChange={handleChange}
-              required
             ></textarea>
+            {descriptionValidationError && (
+              <span className="error">{descriptionValidationError}</span>
+            )}
           </label>
 
           <label htmlFor="datestart">
@@ -121,8 +213,13 @@ function WorkExperience({ experiences, setExperiences }) {
               name="datestart"
               value={formData.datestart}
               onChange={handleChange}
-              required
             />
+            {dateComparisonError.length > 0 && (
+              <span className="error">{dateComparisonError}</span>
+            )}
+            {datestartValidationError && (
+              <span className="error">{datestartValidationError}</span>
+            )}
           </label>
 
           <label htmlFor="dateend">
@@ -132,8 +229,13 @@ function WorkExperience({ experiences, setExperiences }) {
               name="dateend"
               value={formData.dateend}
               onChange={handleChange}
-              required
             />
+            {dateComparisonError.length > 0 && (
+              <span className="error">{dateComparisonError}</span>
+            )}
+            {dateendValidationError && (
+              <span className="error">{dateendValidationError}</span>
+            )}
           </label>
           <button type="submit" className="btn1">
             {editingIndex !== null
@@ -160,12 +262,14 @@ function WorkExperience({ experiences, setExperiences }) {
                   className="action update action-button"
                   onClick={() => handleEdit(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faEdit} />
                   Modifier
                 </button>
                 <button
                   className="action delete action-button"
                   onClick={() => handleDelete(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faTrash} />
                   Supprimer
                 </button>
               </div>

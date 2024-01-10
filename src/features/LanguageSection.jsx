@@ -1,6 +1,8 @@
 // LanguageSection.jsx
 import React, { useEffect, useState } from "react"
 import CollapseSection from "../components/CollapseSection"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 
 const LanguageSection = ({ languages, setLanguages }) => {
   const [formData, setFormData] = useState({
@@ -14,22 +16,41 @@ const LanguageSection = ({ languages, setLanguages }) => {
 
     setFormData({ ...formData, [name]: value })
   }
+  const [LangueValidationError, setLangueValidationError] = useState("")
+  const [LevelValidationError, setLevelValidationError] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (editingIndex !== null) {
-      const newLanguage = [...languages]
-      newLanguage[editingIndex] = formData
+    let langueValidation = formData.langue.length > 0
+    let levelValidation = formData.level.length > 0
+    if (langueValidation && levelValidation) {
+      if (editingIndex !== null) {
+        const newLanguage = [...languages]
+        newLanguage[editingIndex] = formData
 
-      setLanguages(newLanguage)
-      setEditingIndex(null)
+        setLanguages(newLanguage)
+        setEditingIndex(null)
+      } else {
+        setLanguages([...languages, formData])
+      }
+      setFormData({
+        langue: "",
+        level: "",
+      })
+      setLangueValidationError("")
+      setLevelValidationError("")
     } else {
-      setLanguages([...languages, formData])
+      if (!langueValidation) {
+        setLangueValidationError("ce champ est obligatoire")
+      } else {
+        setLangueValidationError("")
+      }
+      if (!levelValidation) {
+        setLevelValidationError("ce champ est obligatoire")
+      } else {
+        setLevelValidationError("")
+      }
     }
-    setFormData({
-      langue: "",
-      level: "",
-    })
   }
 
   const handleEdite = (index) => {
@@ -56,8 +77,11 @@ const LanguageSection = ({ languages, setLanguages }) => {
             name="langue"
             value={formData.langue}
             onChange={handleLanguageChange}
-            required
+            // required
           />
+          {LangueValidationError.length > 0 && (
+            <span className="error">{LangueValidationError}</span>
+          )}
         </label>
 
         <label>
@@ -67,7 +91,7 @@ const LanguageSection = ({ languages, setLanguages }) => {
             onChange={handleLanguageChange}
             id=""
             value={formData.level}
-            required
+            // required
           >
             <option></option>
             {levels.map((level, index) => {
@@ -78,6 +102,9 @@ const LanguageSection = ({ languages, setLanguages }) => {
               )
             })}
           </select>
+          {LevelValidationError.length > 0 && (
+            <span className="error">{LevelValidationError}</span>
+          )}
         </label>
 
         <button type="submit">
@@ -95,16 +122,18 @@ const LanguageSection = ({ languages, setLanguages }) => {
               </div>
               <div className="actions">
                 <button
-                  className="action delete  action-button"
-                  onClick={() => handleDelete(index)}
-                >
-                  Supprimer
-                </button>
-                <button
                   className="action update  action-button"
                   onClick={() => handleEdite(index)}
                 >
+                  <FontAwesomeIcon className="icon" icon={faEdit} />
                   Modifier
+                </button>
+                <button
+                  className="action delete  action-button"
+                  onClick={() => handleDelete(index)}
+                >
+                  <FontAwesomeIcon className="icon" icon={faTrash} />
+                  Supprimer
                 </button>
               </div>
             </div>

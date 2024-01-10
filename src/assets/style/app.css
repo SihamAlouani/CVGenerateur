@@ -5,6 +5,7 @@
   gap: 1rem;
   overflow-y: scroll;
 }
+
 .app {
   display: grid;
   grid-template-columns: 1fr;
@@ -12,7 +13,9 @@
 .prev {
   box-shadow: 0px 0px 3px gray, 1px 1px 3px gray;
 }
-
+.langues li {
+  list-style: none !important;
+}
 .action {
   padding: 0.5rem 0.25rem;
   display: flex;
@@ -21,32 +24,27 @@
   border: none;
 }
 .action.delete {
- 
   color: rgb(255, 252, 252);
-  background: rgb(155, 1, 1);
-
+  background: rgb(238, 49, 49);
 }
 
-
-.action-button{
+.action-button {
+  font-size: 0.8rem;
   font-family: inherit;
-  font-size: 17px;
+  /* font-size: 17px; */
   display: flex;
-  padding-left:0.8em;
-  padding-right:0.8em;
-display: flex;
-gap: 8px;
-border-radius: 7px;
-  align-items: center; 
+  padding: 0.75rem;
+  display: flex;
+
+  align-items: center;
   border: none;
-  overflow: hidden;
+  display: flex;
+  gap: 1rem;
   cursor: pointer;
-  
 }
 .action.update {
- 
   color: white;
-  background: rgb(1, 135, 1);
+  background: rgb(13, 194, 13);
 }
 
 .display .content {
@@ -57,6 +55,11 @@ border-radius: 7px;
 .actions {
   display: flex;
   gap: 0.25rem;
+}
+.ref-display {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 .app-content {
   display: grid;
@@ -81,4 +84,17 @@ border-radius: 7px;
   color: red;
   background-color: var(--base-red);
   font-size: 0.7rem;
+}
+
+@media screen and (width < 900px) {
+  .content,
+  .app-content {
+    grid-template-columns: 1fr;
+  }
+  .right-side {
+    max-width: 100%;
+  }
+  * {
+    overflow-x: hidden !important;
+  }
 }

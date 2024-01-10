@@ -1,4 +1,4 @@
-import { faUpload } from "@fortawesome/free-solid-svg-icons"
+import { faImages, faUpload } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 
@@ -10,6 +10,7 @@ function PersonalInfo({
   setImage,
   setInformations,
 }) {
+  //commentaire
   const [editingIndex, setEditingIndex] = useState(null)
   const [nameValidationError, setNameValidationError] = useState("")
   const [titreValidationError, setTitreValidationError] = useState("")
@@ -23,6 +24,13 @@ function PersonalInfo({
     setFormData({
       ...formData,
       [name]: value,
+    })
+  }
+  const handleChangeNumber = (e) => {
+    const { name, value } = e.target
+    setFormData({
+      ...formData,
+      [name]: value.replace(/\D/g, ""),
     })
   }
 
@@ -42,16 +50,7 @@ function PersonalInfo({
   // useEffect(() => {
   //   Validation()
   // })
-  function Validation() {
-    const nameValidation = informations.nom.length == 0
-    if (nameValidation) {
-      setNameValidationError("ce champ est obligatoire")
-    } else {
-      setNameValidationError("")
-    }
 
-    return nameValidation
-  }
   const handleSubmit = (e) => {}
 
   useEffect(() => {
@@ -64,7 +63,7 @@ function PersonalInfo({
         <form className="form" onSubmit={handleSubmit}>
           <label HtmlFor="image" className="image-label">
             {" "}
-            <FontAwesomeIcon icon={faUpload} className="svg" />
+            <FontAwesomeIcon icon={faImages} className="svg" />
             <span>Télecharger une image</span>
             <input
               type="file"
@@ -142,7 +141,7 @@ function PersonalInfo({
               name="phone"
               placeholder="+20 955......"
               value={formData.phone}
-              onChange={handleChange}
+              onChange={handleChangeNumber}
               required
             />
           </label>
