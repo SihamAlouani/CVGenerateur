@@ -1,27 +1,28 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
+import Sidebar from "./components/Sidebar";
+import "./assets/style/sidebar.css";
+import "./assets/style/form.css";
+import Footer from "./components/Footer";
+import LanguageSection from "./features/LanguageSection";
+import "./assets/style/app.css";
+import "./assets/style/form.css";
+import CustomRoute from "./components/CustomRoute";
+import CollapseSection from "./components/CollapseSection";
+import WorkExperience from "./features/WorkExperience";
+import References from "./features/References";
+import PersonalInfo from "./features/PersonalInfo";
+import Preview from "./features/Preview";
+import Skills from "./features/Skills";
+import Education from "./features/Education";
+import useLocalStorage from "./components/useLocalStorage"; // Importez le custom hook
 
-import Sidebar from "./components/Sidebar"
-import "./assets/style/sidebar.css"
-import "./assets/style/form.css"
-import Footer from "./components/Footer"
-import LanguageSection from "./features/LanguageSection"
-import "./assets/style/app.css"
-import "./assets/style/form.css"
-import CustomRoute from "./components/CustomRoute"
-import CollapseSection from "./components/CollapseSection"
-import WorkExperience from "./features/WorkExperience"
-import References from "./features/References"
-import PersonalInfo from "./features/PersonalInfo"
-import Preview from "./features/Preview"
-import Skills from "./features/Skills"
-import Education from "./features/Education"
 function App() {
-  const [references, setReferences] = useState([])
-  const [languages, setLanguages] = useState([])
-  const [informations, setInformations] = useState([])
-  const [skills, setSkills] = useState([])
-  const [educations, setEducations] = useState([])
-  const [experiences, setExperiences] = useState([])
+  const [references, setReferences] = useState([]);
+  const [languages, setLanguages] = useLocalStorage("languages", []); // Utilisez le custom hook pour gérer les langues dans le localStorage
+  const [informations, setInformations] = useState([]);
+  const [skills, setSkills] = useState([]);
+  const [educations, setEducations] = useState([]);
+  const [experiences, setExperiences] = useState([]);
   const [formData, setFormData] = useState({
     nom: "",
     titre: "",
@@ -30,10 +31,41 @@ function App() {
     adresse: "",
     phone: "",
     linkden: "",
-  })
-  const [image, setImage] = useState({ file: "", previewUrl: "" })
-  const [page, setPage] = useState("Information Personelles")
+  });
+  const [image, setImage] = useState({ file: "", previewUrl: "" });
+  const [page, setPage] = useState("Information Personelles");
 
+  useEffect(() => {
+    const storedInfo = JSON.parse(localStorage.getItem("infoCv"));
+    if (!storedInfo) {
+      const initialValue = {
+        nom: "",
+        titre: "",
+        profile: "",
+        email: "",
+        adresse: "",
+        phone: "",
+        linkden: "",
+        skills: [],
+        languages: [],
+        references: [],
+        educations: [],
+        experiences: [],
+      };
+
+      localStorage.setItem("infoCv", JSON.stringify(initialValue));
+    } else {
+      setFormData({
+        nom: storedInfo.nom,
+        titre: storedInfo.titre,
+        profile: storedInfo.profile,
+        email: storedInfo.email,
+        adresse: storedInfo.adresse,
+        phone: storedInfo.phone,
+        linkden: storedInfo.linkden,
+      });
+    }
+  }, []);
   return (
     <div className="app">
       {/* routes */}

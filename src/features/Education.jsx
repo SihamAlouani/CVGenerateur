@@ -8,6 +8,7 @@ import {
   faTrash,
   faUpRightAndDownLeftFromCenter,
 } from "@fortawesome/free-solid-svg-icons"
+import useLocalStorage from "../components/useLocalStorage"
 
 function Education({ educations, setEducations }) {
   const [formData, setFormData] = useState({

@@ -1,71 +1,87 @@
-// LanguageSection.jsx
-import React, { useEffect, useState } from "react"
-import CollapseSection from "../components/CollapseSection"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
+import React, { useEffect, useState } from "react";
+import CollapseSection from "../components/CollapseSection";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import useLocalStorage from "../components/useLocalStorage";
 
 const LanguageSection = ({ languages, setLanguages }) => {
   const [formData, setFormData] = useState({
     langue: "",
     level: "",
-  })
-  const [editingIndex, setEditingIndex] = useState(null)
+  });
+  const [editingIndex, setEditingIndex] = useState(null);
+  const [LangueValidationError, setLangueValidationError] = useState("");
+  const [LevelValidationError, setLevelValidationError] = useState("");
+
+  // Utilisez le custom hook useLocalStorage
+  const [storedLanguages, setStoredLanguages] = useLocalStorage("languages", []);
+
+  useEffect(() => {
+    // Mise à jour des languages avec les données stockées dans le localStorage
+    setLanguages(storedLanguages);
+  }, [setLanguages, storedLanguages]);
 
   const handleLanguageChange = (e) => {
-    const { name, value } = e.target
-
-    setFormData({ ...formData, [name]: value })
-  }
-  const [LangueValidationError, setLangueValidationError] = useState("")
-  const [LevelValidationError, setLevelValidationError] = useState("")
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    let langueValidation = formData.langue.length > 0
-    let levelValidation = formData.level.length > 0
+    e.preventDefault();
+    let langueValidation = formData.langue.length > 0;
+    let levelValidation = formData.level.length > 0;
+
     if (langueValidation && levelValidation) {
       if (editingIndex !== null) {
-        const newLanguage = [...languages]
-        newLanguage[editingIndex] = formData
+        const newLanguage = [...languages];
+        newLanguage[editingIndex] = formData;
 
-        setLanguages(newLanguage)
-        setEditingIndex(null)
+        setLanguages(newLanguage);
+        setEditingIndex(null);
       } else {
-        setLanguages([...languages, formData])
+        setLanguages([...languages, formData]);
       }
+
+      // Sauvegarde des languages dans le localStorage
+      setStoredLanguages([...languages, formData]);
+
       setFormData({
         langue: "",
         level: "",
-      })
-      setLangueValidationError("")
-      setLevelValidationError("")
+      });
+
+      setLangueValidationError("");
+      setLevelValidationError("");
     } else {
       if (!langueValidation) {
-        setLangueValidationError("ce champ est obligatoire")
+        setLangueValidationError("Ce champ est obligatoire");
       } else {
-        setLangueValidationError("")
+        setLangueValidationError("");
       }
       if (!levelValidation) {
-        setLevelValidationError("ce champ est obligatoire")
+        setLevelValidationError("Ce champ est obligatoire");
       } else {
-        setLevelValidationError("")
+        setLevelValidationError("");
       }
     }
-  }
+  };
 
   const handleEdite = (index) => {
-    setFormData(languages[index])
-    setEditingIndex(index)
-  }
+    setFormData(languages[index]);
+    setEditingIndex(index);
+  };
 
   const handleDelete = (index) => {
-    const newLanguages = [...languages]
-    newLanguages.splice(index, 1)
-    setLanguages(newLanguages)
-    setEditingIndex(null)
-  }
+    const newLanguages = [...languages];
+    newLanguages.splice(index, 1);
+    setLanguages(newLanguages);
+    setEditingIndex(null);
 
-  const levels = ["Langue-maternnelle", "Basic", "Intermidiaire", "Avancé"]
+    // Mise à jour du localStorage après la suppression d'une langue
+    setStoredLanguages(newLanguages);
+  };
+
+  const levels = ["Langue-maternnelle", "Basic", "Intermédiaire", "Avancé"];
 
   return (
     <div>
@@ -144,4 +160,4 @@ const LanguageSection = ({ languages, setLanguages }) => {
   )
 }
 
-export default LanguageSection
+export default LanguageSection;
