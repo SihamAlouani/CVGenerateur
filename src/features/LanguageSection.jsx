@@ -3,6 +3,7 @@ import CollapseSection from "../components/CollapseSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import useLocalStorage from "../components/useLocalStorage";
+import useDocumentTitle from "./UseDocumentTitle"
 
 const LanguageSection = ({ languages, setLanguages }) => {
   const [formData, setFormData] = useState({
@@ -25,6 +26,12 @@ const LanguageSection = ({ languages, setLanguages }) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  const updateTitle = useDocumentTitle();
+
+useEffect(()=>{
+  updateTitle("Langues")
+},[]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
