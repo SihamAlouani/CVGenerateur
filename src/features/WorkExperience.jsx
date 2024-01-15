@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
+import useDocumentTitle from "./UseDocumentTitle"
 //import "../assets/style/WorkExperience.css";
 
 function WorkExperience({ experiences, setExperiences }) {
@@ -17,12 +18,14 @@ function WorkExperience({ experiences, setExperiences }) {
   const [nameValidationError, setNameValidationError] = useState("")
   const [jobnameValidationError, setJobnameValidationError] = useState("")
   const [jobtypeValidationError, setjobtypeValidationError] = useState("")
-  const [descriptionValidationError, setDescriptionValidationError] =
-    useState("")
+  const [descriptionValidationError, setDescriptionValidationError] = useState("")
   const [datestartValidationError, setDatestartValidationError] = useState("")
   const [dateendValidationError, setdateendValidationError] = useState("")
   const [dateComparisonError, setDateComparisonError] = useState("")
 
+
+  //usedocumenttitle
+  const updateTitle = useDocumentTitle()
 
   
   const handleChange = (e) => {
@@ -32,6 +35,12 @@ function WorkExperience({ experiences, setExperiences }) {
       [name]: value,
     })
   }
+
+//utilise usedocumenttitle
+  useEffect(()=>{
+    updateTitle('Experiences')
+  },[])
+
 
   const handleSubmit = (e) => {
     e.preventDefault()

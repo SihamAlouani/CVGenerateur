@@ -1,6 +1,7 @@
 import { faImages, faUpload } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
+import useDocumentTitle from "./UseDocumentTitle"
 
 function PersonalInfo({
   informations,
@@ -19,6 +20,9 @@ function PersonalInfo({
   const [addressValidationError, setAddressValidationError] = useState("")
   const [telValidationError, setTelValidationError] = useState("")
   const [LinkedInValidationError, setLinkedInValidationError] = useState("")
+
+  const updateTitle = useDocumentTitle();
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -54,8 +58,12 @@ function PersonalInfo({
   const handleSubmit = (e) => {}
 
   useEffect(() => {
-    console.log("azzaeaz", informations)
-  })
+    console.log("azzaeaz", informations);
+    updateTitle("Informations personnelles")
+  },[]);
+
+
+  
 
   return (
     <>

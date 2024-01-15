@@ -3,11 +3,16 @@ import "../assets/style/skills.css"
 import CollapseSection from "../components/CollapseSection"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
+import useDocumentTitle from "./UseDocumentTitle"
 
 function Skills({ skills, setSkills }) {
   const [formData, setFormData] = useState("")
   const [editingIndex, setEditingIndex] = useState(null)
   const [skillValidationError, setSkillValidationError] = useState("")
+
+
+  const updateTitle = useDocumentTitle()
+
 
   const handleSkillChange = (e) => {
     setFormData(e.target.value)
@@ -38,6 +43,11 @@ function Skills({ skills, setSkills }) {
     setFormData(skills[index])
     setEditingIndex(index)
   }
+
+  useEffect(()=>{
+      updateTitle("Competances techniques")
+  },[])
+  
 
   const handleDelete = (index) => {
     const newSkills = [...skills]

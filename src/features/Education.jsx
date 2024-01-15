@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { } from "@fortawesome/free-brands-svg-icons"
@@ -8,6 +8,7 @@ import {
   faTrash,
   faUpRightAndDownLeftFromCenter,
 } from "@fortawesome/free-solid-svg-icons"
+import useDocumentTitle from "./UseDocumentTitle"
 
 function Education({ educations, setEducations }) {
   const [formData, setFormData] = useState({
@@ -27,7 +28,13 @@ function Education({ educations, setEducations }) {
   const [dateDeFinValidationError, setdateDeFinValidationError] = useState("")
   const [EcoleValidationError, setEcoleValidationError] = useState("")
   const [VilleValidationError, setVilleValidationError] = useState("")
-  const [dateComparisonError, setDateComparisonError] = useState("");
+  const [dateComparisonError, setDateComparisonError] = useState("")
+
+  const updateTitle=useDocumentTitle()
+
+  useEffect(()=>{
+    updateTitle('Education')
+  },[]);
 
 
   const handleChange = (e) => {

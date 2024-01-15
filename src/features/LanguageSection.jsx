@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
+import useDocumentTitle from "./UseDocumentTitle"
 
 const LanguageSection = ({ languages, setLanguages }) => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,12 @@ const LanguageSection = ({ languages, setLanguages }) => {
   }
   const [LangueValidationError, setLangueValidationError] = useState("")
   const [LevelValidationError, setLevelValidationError] = useState("")
+
+  const updateTitle = useDocumentTitle();
+
+useEffect(()=>{
+  updateTitle("Langues")
+},[]);
 
   const handleSubmit = (e) => {
     e.preventDefault()
