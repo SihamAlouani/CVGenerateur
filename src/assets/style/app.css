@@ -10,6 +10,7 @@
 .app {
   display: grid;
   grid-template-columns: 1fr;
+  
 }
 .prev {
   box-shadow: 0px 0px 3px gray, 1px 1px 3px gray;
