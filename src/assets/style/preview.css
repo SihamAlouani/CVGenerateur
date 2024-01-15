@@ -28,7 +28,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
 
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   overflow: hidden;
   width: calc(21cm * var(--size));
   height: calc(29.7cm * var(--size));
@@ -230,8 +230,9 @@
     left: 0;
     right: 0;
     width: unset !important;
+
     height: unset !important;
-    font-size: unset;
+    font-size: 0.75rem;
   }
 }
 @media screen and (width < 900px) {

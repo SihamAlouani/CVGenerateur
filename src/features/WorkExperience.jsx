@@ -37,9 +37,6 @@ function WorkExperience({ experiences, setExperiences }) {
   }
 
 //utilise usedocumenttitle
-  useEffect(()=>{
-    updateTitle('Experiences')
-  },[])
 
 
   const handleSubmit = (e) => {

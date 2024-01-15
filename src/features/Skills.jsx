@@ -10,9 +10,7 @@ function Skills({ skills, setSkills }) {
   const [editingIndex, setEditingIndex] = useState(null)
   const [skillValidationError, setSkillValidationError] = useState("")
 
-
   const updateTitle = useDocumentTitle()
-
 
   const handleSkillChange = (e) => {
     setFormData(e.target.value)
@@ -43,11 +41,6 @@ function Skills({ skills, setSkills }) {
     setFormData(skills[index])
     setEditingIndex(index)
   }
-
-  useEffect(()=>{
-      updateTitle("Competances techniques")
-  },[])
-  
 
   const handleDelete = (index) => {
     const newSkills = [...skills]
