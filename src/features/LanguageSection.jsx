@@ -1,42 +1,36 @@
-import React, { useEffect, useState } from "react";
-import CollapseSection from "../components/CollapseSection";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import useLocalStorage from "../components/useLocalStorage";
+import React, { useEffect, useState } from "react"
+import CollapseSection from "../components/CollapseSection"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
+import useLocalStorage from "../components/useLocalStorage"
 import useDocumentTitle from "./UseDocumentTitle"
 
-const LanguageSection = ({ languages, setLanguages }) => {
+const LanguageSection = ({ languages, setLanguages, page }) => {
   const [formData, setFormData] = useState({
     langue: "",
     level: "",
-  });
-  const [editingIndex, setEditingIndex] = useState(null);
-  const [LangueValidationError, setLangueValidationError] = useState("");
-  const [LevelValidationError, setLevelValidationError] = useState("");
+  })
+  const [editingIndex, setEditingIndex] = useState(null)
+  const [LangueValidationError, setLangueValidationError] = useState("")
+  const [LevelValidationError, setLevelValidationError] = useState("")
 
   // Utilisez le custom hook useLocalStorage
-  const [storedLanguages, setStoredLanguages] = useLocalStorage("languages", []);
+  const [storedLanguages, setStoredLanguages] = useLocalStorage("languages", [])
 
   useEffect(() => {
     // Mise à jour des languages avec les données stockées dans le localStorage
-    setLanguages(storedLanguages);
-  }, [setLanguages, storedLanguages]);
+    setLanguages(storedLanguages)
+  }, [setLanguages, storedLanguages])
 
   const handleLanguageChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const updateTitle = useDocumentTitle();
-
-useEffect(()=>{
-  updateTitle("Langues")
-},[]);
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    let langueValidation = formData.langue.length > 0;
-    let levelValidation = formData.level.length > 0;
+    e.preventDefault()
+    let langueValidation = formData.langue.length > 0
+    let levelValidation = formData.level.length > 0
 
     if (langueValidation && levelValidation) {
       if (editingIndex !== null) {
@@ -55,40 +49,40 @@ useEffect(()=>{
       setFormData({
         langue: "",
         level: "",
-      });
+      })
 
-      setLangueValidationError("");
-      setLevelValidationError("");
+      setLangueValidationError("")
+      setLevelValidationError("")
     } else {
       if (!langueValidation) {
-        setLangueValidationError("Ce champ est obligatoire");
+        setLangueValidationError("Ce champ est obligatoire")
       } else {
-        setLangueValidationError("");
+        setLangueValidationError("")
       }
       if (!levelValidation) {
-        setLevelValidationError("Ce champ est obligatoire");
+        setLevelValidationError("Ce champ est obligatoire")
       } else {
-        setLevelValidationError("");
+        setLevelValidationError("")
       }
     }
-  };
+  }
 
   const handleEdite = (index) => {
-    setFormData(languages[index]);
-    setEditingIndex(index);
-  };
+    setFormData(languages[index])
+    setEditingIndex(index)
+  }
 
   const handleDelete = (index) => {
-    const newLanguages = [...languages];
-    newLanguages.splice(index, 1);
-    setLanguages(newLanguages);
-    setEditingIndex(null);
+    const newLanguages = [...languages]
+    newLanguages.splice(index, 1)
+    setLanguages(newLanguages)
+    setEditingIndex(null)
 
     // Mise à jour du localStorage après la suppression d'une langue
-    setStoredLanguages(newLanguages);
-  };
+    setStoredLanguages(newLanguages)
+  }
 
-  const levels = ["Langue-maternnelle", "Basic", "Intermédiaire", "Avancé"];
+  const levels = ["Langue-maternnelle", "Basic", "Intermédiaire", "Avancé"]
 
   return (
     <div>
@@ -167,4 +161,4 @@ useEffect(()=>{
   )
 }
 
-export default LanguageSection;
+export default LanguageSection

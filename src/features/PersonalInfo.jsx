@@ -6,6 +6,7 @@ import useDocumentTitle from "./UseDocumentTitle"
 function PersonalInfo({
   informations,
   formData,
+  page,
   setFormData,
   image,
   setImage,
@@ -21,7 +22,7 @@ function PersonalInfo({
   const [telValidationError, setTelValidationError] = useState("")
   const [LinkedInValidationError, setLinkedInValidationError] = useState("")
 
-  const updateTitle = useDocumentTitle();
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -56,14 +57,6 @@ function PersonalInfo({
   // })
 
   const handleSubmit = (e) => {}
-
-  useEffect(() => {
-    console.log("azzaeaz", informations);
-    updateTitle("Informations personnelles")
-  },[]);
-
-
-  
 
   return (
     <>

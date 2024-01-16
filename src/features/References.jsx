@@ -15,7 +15,6 @@ function References({ references, setReferences }) {
     position: "",
   })
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -35,9 +34,8 @@ function References({ references, setReferences }) {
   const [EmailValidationError, setEmailValidationError] = useState("")
   const [nomEntreValidationError, setnomEntreValidationError] = useState("")
   const [postenomValidationError, setpostenomValidationError] = useState("")
-  
-  const updateTitle = useDocumentTitle();
 
+  const updateTitle = useDocumentTitle()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -118,10 +116,6 @@ function References({ references, setReferences }) {
     setReferences(newReferences)
     setEditingIndex(null)
   }
-
-  useEffect(()=>{
-    updateTitle("References")
-  },[]);
 
   return (
     <>

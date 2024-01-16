@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import CollapseSection from "../components/CollapseSection"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { } from "@fortawesome/free-brands-svg-icons"
+import {} from "@fortawesome/free-brands-svg-icons"
 import {
   faDeleteLeft,
   faEdit,
@@ -11,9 +11,10 @@ import {
 import useLocalStorage from "../components/useLocalStorage"
 import useDocumentTitle from "./UseDocumentTitle"
 
-function Education({ educations, setEducations }) {
+function Education({ educations, page, setEducations }) {
   const [formData, setFormData] = useState({
     diplome: "",
+
     date_de_commencement: "",
     date_de_fin: "",
     ecole: "",
@@ -31,13 +32,6 @@ function Education({ educations, setEducations }) {
   const [VilleValidationError, setVilleValidationError] = useState("")
   const [dateComparisonError, setDateComparisonError] = useState("")
 
-  const updateTitle=useDocumentTitle()
-
-  useEffect(()=>{
-    updateTitle('Education')
-  },[]);
-
-
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -54,17 +48,22 @@ function Education({ educations, setEducations }) {
     let dateDeFintValidation = formData.date_de_fin.length > 0
     let ecoleValidation = formData.ecole.length > 0
     let villeValidation = formData.location.length > 0
-    let dateDeCommencement = dateDeCommencementValidation ? new Date(formData.date_de_commencement) : null;
-    let dateDeFin = dateDeFintValidation ? new Date(formData.date_de_fin) : null;
-  
-   let ComparisondateValidation =
-  dateDeCommencement === null || (dateDeFin === null || dateDeCommencement < dateDeFin);
+    let dateDeCommencement = dateDeCommencementValidation
+      ? new Date(formData.date_de_commencement)
+      : null
+    let dateDeFin = dateDeFintValidation ? new Date(formData.date_de_fin) : null
 
-  
+    let ComparisondateValidation =
+      dateDeCommencement === null ||
+      dateDeFin === null ||
+      dateDeCommencement < dateDeFin
+
     if (!ComparisondateValidation) {
-      setDateComparisonError("La date de fin doit être après la date de commencement");
+      setDateComparisonError(
+        "La date de fin doit être après la date de commencement"
+      )
     } else {
-      setDateComparisonError("");
+      setDateComparisonError("")
     }
     if (
       diplomeValidation &&
@@ -72,7 +71,7 @@ function Education({ educations, setEducations }) {
       // dateDeFintValidation &&
       ecoleValidation &&
       villeValidation &&
-     ComparisondateValidation
+      ComparisondateValidation
     ) {
       if (editingIndex !== null) {
         const newPersonalInf = [...educations]
@@ -92,7 +91,7 @@ function Education({ educations, setEducations }) {
       setDiplomeValidationError("")
       setDateDeCommencementValidationError("")
       setdateDeFinValidationError("")
-      setDateComparisonError("");
+      setDateComparisonError("")
       setEcoleValidationError("")
       setVilleValidationError("")
     } else {
@@ -151,7 +150,7 @@ function Education({ educations, setEducations }) {
               value={formData.diplome}
               onChange={handleChange}
               placeholder="Licence en Ingénierie... "
-            // required
+              // required
             />
             {diplomeValidationError.length > 0 && (
               <span className="error">{diplomeValidationError}</span>
@@ -164,12 +163,11 @@ function Education({ educations, setEducations }) {
               name="date_de_commencement"
               value={formData.date_de_commencement}
               onChange={handleChange}
-            // required
+              // required
             />
             {dateComparisonError.length > 0 && (
               <span className="error">{dateComparisonError}</span>
             )}
-
             {dateDeCommencementValidationError.length > 0 && (
               <span className="error">{dateDeCommencementValidationError}</span>
             )}
@@ -181,9 +179,9 @@ function Education({ educations, setEducations }) {
               name="date_de_fin"
               value={formData.date_de_fin}
               onChange={handleChange}
-            // required
+              // required
             />
-             {dateComparisonError.length > 0 && (
+            {dateComparisonError.length > 0 && (
               <span className="error">{dateComparisonError}</span>
             )}
             {dateDeFinValidationError.length > 0 && (
@@ -199,7 +197,7 @@ function Education({ educations, setEducations }) {
               value={formData.ecole}
               onChange={handleChange}
               placeholder="Université Internationale de Rabat  "
-            // required
+              // required
             />
             {EcoleValidationError.length > 0 && (
               <span className="error">{EcoleValidationError}</span>
@@ -214,7 +212,7 @@ function Education({ educations, setEducations }) {
               id="location"
               value={formData.location}
               onChange={handleChange}
-            // required
+              // required
             />
             {VilleValidationError.length > 0 && (
               <span className="error">{VilleValidationError}</span>
