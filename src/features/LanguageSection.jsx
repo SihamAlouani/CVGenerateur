@@ -42,15 +42,15 @@ useEffect(()=>{
       if (editingIndex !== null) {
         const newLanguage = [...languages];
         newLanguage[editingIndex] = formData;
-
         setLanguages(newLanguage);
         setEditingIndex(null);
+        setStoredLanguages(newLanguage);
       } else {
         setLanguages([...languages, formData]);
+        setStoredLanguages([...languages, formData]);
       }
 
       // Sauvegarde des languages dans le localStorage
-      setStoredLanguages([...languages, formData]);
 
       setFormData({
         langue: "",
