@@ -27,10 +27,6 @@ const LanguageSection = ({ languages, setLanguages, page }) => {
     setFormData({ ...formData, [name]: value })
   }
 
-  const updateTitle = useDocumentTitle()
-
-
-
   const handleSubmit = (e) => {
     e.preventDefault()
     let langueValidation = formData.langue.length > 0

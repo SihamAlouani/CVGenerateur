@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import Sidebar from "./components/Sidebar"
 import "./assets/style/sidebar.css"
 import "./assets/style/form.css"
@@ -36,7 +36,8 @@ function App() {
   const [image, setImage] = useState({ file: "", previewUrl: "" })
   const [page, setPage] = useState("Information Personelles")
   const updateTitle = useDocumentTitle()
-  useEffect(() => {
+  useMemo(() => {
+    console.log("helloi")
     updateTitle(page)
   }, [page])
 

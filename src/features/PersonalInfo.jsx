@@ -22,7 +22,7 @@ function PersonalInfo({
   const [telValidationError, setTelValidationError] = useState("")
   const [LinkedInValidationError, setLinkedInValidationError] = useState("")
 
-  const updateTitle = useDocumentTitle()
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target

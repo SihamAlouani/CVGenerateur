@@ -32,8 +32,6 @@ function Education({ educations, page, setEducations }) {
   const [VilleValidationError, setVilleValidationError] = useState("")
   const [dateComparisonError, setDateComparisonError] = useState("")
 
-  const updateTitle = useDocumentTitle()
-
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
